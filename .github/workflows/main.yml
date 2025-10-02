@@ -17,7 +17,13 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          # Clear any existing known_hosts entries and add the server key
+          rm -f ~/.ssh/known_hosts
+          echo "Scanning SSH host key for ${{ secrets.HOST_SERVER_IP }}..."
           ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
+          # Verify the key was added successfully
+          echo "Known hosts file contents:"
+          cat ~/.ssh/known_hosts
       - name: Copy files to server
         run: |
-          rsync -vrm --delete ./ ${{ secrets.SSH_LOGIN_CREDS }}:/data01/virt115405/domeenid/www.bizarrelabs.one/htdocs
+          rsync -vrm --delete -e "ssh -o StrictHostKeyChecking=yes -o UserKnownHostsFile=~/.ssh/known_hosts" ./ ${{ secrets.SSH_LOGIN_CREDS }}:/data01/virt115405/domeenid/www.bizarrelabs.one/htdocs
