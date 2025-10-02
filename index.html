@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Karl, a product designer and front-end developer, shares his work on user-centric products, design systems, and Web3 projects."
+        />
+        <meta name="author" content="Karl Simmer" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Karl Simmer • Product design" />
+        <meta
+            property="og:description"
+            content="Karl builds web apps and design systems."
+        />
+        <title>Karl Simmer • Product design</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300,400,500,600,700,800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header>
+            <a href="https://www.bizarrelabs.one" class="logo-link">
+                <div id="logo" class="logo">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 48.34 67"
+                        class="logo-icon"
+                    >
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: var(--logo);
+                                    stroke-width: 0px;
+                                }
+                            </style>
+                        </defs>
+                        <path
+                            class="cls-1"
+                            d="M24.17,67C15.98,67,0,45.28,0,26.76,0,9.76,8.81,0,24.17,0s24.15,9.75,24.17,26.76c0,18.52-15.98,40.24-24.17,40.24ZM24.17,3C10.52,3,3,11.44,3,26.76c0,17.88,15.87,37.24,21.17,37.24s21.17-18.93,21.17-37.24c-.02-20.68-13.27-23.76-21.17-23.76ZM17.69,41.67h-.01c-2.63,0-5.62-1.6-8-4.27-3.88-4.29-4.92-9.85-2.37-12.65.95-1.06,2.29-1.62,3.86-1.62h.01c2.63,0,5.62,1.6,8,4.27,3.9,4.23,4.95,9.79,2.37,12.64-.96,1.06-2.3,1.62-3.87,1.62ZM11.17,26.13c-.71,0-1.26.21-1.64.63-1.29,1.42-.63,5.3,2.38,8.63,1.8,2.02,4.02,3.27,5.78,3.27h0c.71,0,1.26-.21,1.64-.63h0c1.3-1.45.65-5.34-2.37-8.62-1.81-2.03-4.03-3.28-5.79-3.28h0ZM30.61,41.65c-1.56,0-2.89-.55-3.85-1.6-2.58-2.86-1.53-8.42,2.38-12.67,2.39-2.64,5.39-4.23,8.01-4.23h.01c1.56,0,2.89.55,3.85,1.6,2.6,2.85,1.58,8.29-2.37,12.65h0c-2.4,2.65-5.4,4.24-8.02,4.25h-.01ZM37.17,26.15h0c-1.76,0-3.99,1.25-5.8,3.26-3.03,3.29-3.68,7.18-2.38,8.63.37.41.92.62,1.62.62h0c1.76,0,3.99-1.25,5.8-3.26h0c3.05-3.37,3.69-7.18,2.38-8.62-.38-.41-.93-.62-1.63-.62Z"
+                        />
+                    </svg>
+                </div>
+            </a>
+            <div class="pin">
+              <div class="pin-container" id="pinMenu">
+                <div class="pin-menu-items">
+                    <button class="pin-link pin-toggle" aria-label="Toggle menu">
+                    <img src="assets/bars-solid-full.svg" class="icon" alt="Menu">
+                  </button>
+                  <a href="https://www.figma.com/@kungfury" target="_blank" class="pin-link" data-tooltip="Figma">
+                    <img src="assets/figma-brands-solid-full.svg" class="icon" alt="Figma">
+                  </a>
+                  <a href="/photography.html" class="pin-link" data-tooltip="Photography">
+                    <img src="assets/camera-solid-full.svg" class="icon" alt="Photography">
+                  </a>
+                  
+                </div>
+              </div>
+            </div>
+
+        </header>
+        <div class="app">
+            <section class="hero-section">
+                <div class="hero-media">
+                    <div
+                        style="
+                            width: 100%;
+                            height: auto;
+                            max-width: 300px;
+                            overflow: hidden;
+                        "
+                    >
+                        <canvas
+                            id="canvas"
+                            width="298"
+                            height="298"
+                            style="
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 20px;
+                            "
+                        ></canvas>
+                    </div>
+                </div>
+                <div class="hero-meta">
+                    <h1>Hello there explorer.</h1>
+                    <p>
+                        I do product design and web development. On my journey,
+                        I've led design process for user-centric products and
+                        design systems.
+                    </p>
+                    <p>
+                        (Been designing for two
+                        <a
+                            href="https://www.lift99.co/walloffame"
+                            target="_blank"
+                            >#EstonianMafia</a
+                        >
+                        startups.)
+                    </p>
+                    <div class="button-group">
+                        <a href="#portfolio" class="primary-button"
+                            >Check out my work</a
+                        >
+                        <a
+                            href="assets/karlsimmer-resume.pdf"
+                            target="_blank"
+                            class="primary-button"
+                            >Read my CV</a
+                        >
+                    </div>
+                </div>
+            </section>
+            <section id="portfolio" class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>Moon Design System</h2>
+                        <p>
+                            Moon Design System is Yolo’s design system. It's
+                            built to help product teams create better digital
+                            experiences.
+                        </p>
+                        <p>
+                            Moon Design System is and has always been an
+                            open-source project. We believe in a collaborative
+                            environment, that thrives on communities coming
+                            together to build better experiences.
+                        </p>
+                        <p>
+                            My work includes building design tokens, automating
+                            workflows, building documentation and advocating for
+                            the design system across our products
+                        </p>
+                        <br />
+
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Senior Product Designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2024 -</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://beta.moon.io/"
+                                    target="_blank"
+                                    >BETA.MOON.IO</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-item">
+                        <img
+                            src="designs/moon/tokens.jpg"
+                            alt="Moon Design System"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/moon/tag.jpg"
+                            alt="Moon Design System"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>Fudy Order & Pay</h2>
+                        <p>
+                            I led the product design of a QR-ordering product
+                            for restaurants, bars and other venues.
+                        </p>
+                        <p>
+                            Fudy was transitioning from a food delivery service,
+                            where customer and restaurant staff interactions
+                            were entirely online. With <span>Order & Pay</span>,
+                            we focused on creating an immediate, personal
+                            in-person dining experience.
+                        </p>
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Lead Product Designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2023 - 2024</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://fudy.eu"
+                                    target="_blank"
+                                    >FUDY.EU</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-item">
+                        <img
+                            src="designs/dinein/dinein1.jpg"
+                            alt="Fudy Order & Pay"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/dinein/kds0.jpg"
+                            alt="Fudy Order & Pay"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/dinein/dinein5.jpg"
+                            alt="Fudy Order & Pay"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/dinein/dinein3.jpg"
+                            alt="Fudy Order & Pay"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>Tempus</h2>
+                        <p>
+                            Tempus operates in the Web3 space. I contributed as
+                            a contractor to three DeFi projects: Nostra, WenWin,
+                            and Raft.
+                        </p>
+                        <p>
+                            <span>Nostra</span> is a decentralized exchange for
+                            lending, borrowing and trading crypto.
+                            <span>WenWin</span> is a blockchain lottery on
+                            Ethereum network and <span>Raft</span> is a platform
+                            to deposit collateral and earn yield.
+                        </p>
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Product Designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2022 - 2023</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://tempus.finance/"
+                                    target="_blank"
+                                    >TEMPUS.FINANCE</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-item">
+                        <img src="designs/tempus/tempus3.jpg" alt="Tempus" />
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/tempus/tempus1.jpg" alt="Tempus" />
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/tempus/tempus2.jpg" alt="Tempus" />
+                    </div>
+                </div>
+            </section>
+            <section class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>Freya Foodbar</h2>
+                        <p>
+                            Freya is a sustainable catering service and a
+                            foodbar in Tallinn, Estonia. They are on a mission
+                            to redefine fast food, by offering a green
+                            alternative.
+                        </p>
+                        <p>
+                            Site is built with Wordpress and Elementor page
+                            builder. There's a feature built with
+                            <span>ACF</span>, which displays the menu of the
+                            day. Contact form is built with
+                            <span>Contact Form 7</span>, using conditional
+                            fields.
+                        </p>
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Web designer & developer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2024</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://freyafoodbar.ee/"
+                                    target="_blank"
+                                    >FREYAFOODBAR.EE</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-item">
+                        <img src="designs/freya/freya0.jpg" alt="Freya" />
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/freya/freya1.jpg" alt="Freya" />
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/freya/freya2.jpg" alt="Freya" />
+                    </div>
+                </div>
+            </section>
+            <section class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>Motiveer</h2>
+                        <p>
+                            Motiveer is AI-powered, employee development
+                            platform. I designed a landing page and created
+                            visual content with Midjourney.
+                        </p>
+                        <p>
+                            I used <span>Niji 5 model</span>, it seemed to be
+                            perfect for anime aesthetics and character-focused
+                            compositions, which matched with Motiveers own
+                            character.
+                        </p>
+                        <p>
+                            With UI design, I wanted to ensure that Motiveer
+                            would reflect to its visitors as a light weight and
+                            promising startup.
+                        </p>
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2023</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://www.motiveer.eu/"
+                                    target="_blank"
+                                    >MOTIVEER.EU</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-col">
+                        <div class="media-item">
+                            <img
+                                src="designs/motiveer/motiveer3.jpg"
+                                alt="Motiveer"
+                            />
+                        </div>
+                        <div class="media-item">
+                            <img
+                                src="designs/motiveer/motiveer4.jpg"
+                                alt="Motiveer"
+                            />
+                        </div>
+                        <div class="media-item">
+                            <img
+                                src="designs/motiveer/motiveer5.jpg"
+                                alt="Motiveer"
+                            />
+                        </div>
+                        <div class="media-item">
+                            <img
+                                src="designs/motiveer/motiveer6.jpg"
+                                alt="Motiveer"
+                            />
+                        </div>
+                        <div class="media-item">
+                            <img
+                                src="designs/motiveer/motiveer7.jpg"
+                                alt="Motiveer"
+                            />
+                        </div>
+                        <div class="media-item">
+                            <img
+                                src="designs/motiveer/motiveer8.jpg"
+                                alt="Motiveer"
+                            />
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/motiveer/motiveer1.jpg"
+                            alt="Motiveer"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/motiveer/motiveer2.jpg"
+                            alt="Motiveer"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>Fiizy</h2>
+                        <p>
+                            Fiizy has been doing fintech products, mainly being
+                            a marketplace for financial products and services.
+                        </p>
+                        <p>
+                            I was mainly doing UI design for lending
+                            applications for different markets, coding and
+                            designing HTML emails.
+                        </p>
+                        <p>
+                            Later, I contributed to Fiizy's shift into
+                            <span>Buy Now, Pay Later</span>, designing a
+                            checkout concept and a rebranded website for the
+                            product.
+                        </p>
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Web designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2019 - 2022</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://fiizy.com/"
+                                    target="_blank"
+                                    >FIIZY.COM</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-item">
+                        <img src="designs/fiizy/fiizy-1.jpg" alt="Fiizy" />
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/fiizy/fiizy-2.jpg" alt="Fiizy" />
+                    </div>
+                    <div class="media-col">
+                        <div class="media-item">
+                            <img src="designs/fiizy/fiizy-3.jpg" alt="Fiizy" />
+                        </div>
+                        <div class="media-item">
+                            <img src="designs/fiizy/fiizy-4.jpg" alt="Fiizy" />
+                        </div>
+                        <div class="media-item">
+                            <img src="designs/fiizy/fiizy-5.jpg" alt="Fiizy" />
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/fiizy/fiizy-6.jpg" alt="Fiizy" />
+                    </div>
+                    <div class="media-item">
+                        <img src="designs/fiizy/fiizy-7.jpg" alt="Fiizy" />
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="js/border-bottom.js"></script>
+        <script src="js/pin-menu.js"></script>
+        <script src="https://unpkg.com/@rive-app/canvas"></script>
+        <script>
+            const r = new rive.Rive({
+                src: "assets/hologram.riv",
+                // OR the path to a discoverable and public Rive asset
+                // src: '/public/example.riv',
+                canvas: document.getElementById("canvas"),
+                autoplay: true,
+                // artboard: "Arboard", // Optional. If not supplied the default is selected
+                stateMachines: "Play",
+                onLoad: () => {
+                    r.resizeDrawingSurfaceToCanvas();
+                },
+            });
+        </script>
+    </body>
+</html>
