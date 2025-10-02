@@ -19,9 +19,10 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           # Clear any existing known_hosts entries and add the server key
           rm -f ~/.ssh/known_hosts
-          echo "Scanning SSH host key for ${{ secrets.HOST_SERVER_IP }}..."
-          ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
-          # Verify the key was added successfully
+          echo "Scanning SSH host keys for ${{ secrets.HOST_SERVER_IP }}..."
+          # Scan for all common key types (RSA, ECDSA, ED25519)
+          ssh-keyscan -t rsa,ecdsa,ed25519 -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
+          # Verify the keys were added successfully
           echo "Known hosts file contents:"
           cat ~/.ssh/known_hosts
       - name: Copy files to server
