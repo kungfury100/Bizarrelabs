@@ -10,6 +10,8 @@ class PinMenu {
         this.isExpanded = false;
         this.expandTimeout = null;
         this.collapseTimeout = null;
+        this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        this.justExpanded = false;
         
         this.init();
     }
@@ -24,9 +26,16 @@ class PinMenu {
         this.menuItems = this.container.querySelector('.pin-menu-items');
         this.pinItems = this.container.querySelectorAll('.pin-item');
         
-        // Add event listeners
-        this.container.addEventListener('mouseenter', () => this.handleMouseEnter());
-        this.container.addEventListener('mouseleave', () => this.handleMouseLeave());
+        // Add event listeners based on device type
+        if (!this.isTouchDevice) {
+            // Desktop: use hover events
+            this.container.addEventListener('mouseenter', () => this.handleMouseEnter());
+            this.container.addEventListener('mouseleave', () => this.handleMouseLeave());
+        } else {
+            // Mobile: use touch events
+            this.toggle.addEventListener('touchstart', (e) => this.handleToggleTouchStart(e), { passive: false });
+        }
+        
         this.toggle.addEventListener('click', (e) => this.handleToggleClick(e));
         
         // Add keyboard support
@@ -40,14 +49,37 @@ class PinMenu {
     
     initSweepingHover() {
         this.pinItems.forEach((item, index) => {
-            item.addEventListener('mouseenter', () => {
-                this.setSweepPosition(index);
-            });
+            // Mouse events for desktop
+            if (!this.isTouchDevice) {
+                item.addEventListener('mouseenter', () => {
+                    this.setSweepPosition(index);
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    this.clearSweepPosition();
+                });
+            }
             
-            item.addEventListener('mouseleave', () => {
-                this.clearSweepPosition();
-            });
+            // Touch events for mobile
+            if (this.isTouchDevice) {
+                item.addEventListener('touchstart', (e) => {
+                    this.handleTouchStart(e, index);
+                }, { passive: false });
+                
+                item.addEventListener('click', (e) => {
+                    this.handlePinItemClick(e, item);
+                });
+            }
         });
+        
+        // Handle clicks outside menu to collapse on mobile
+        if (this.isTouchDevice) {
+            document.addEventListener('touchstart', (e) => {
+                if (!this.container.contains(e.target) && this.isExpanded) {
+                    this.collapse();
+                }
+            });
+        }
     }
     
     setSweepPosition(index) {
@@ -60,6 +92,42 @@ class PinMenu {
         if (this.menuItems) {
             this.menuItems.removeAttribute('data-hover');
         }
+    }
+    
+    handleTouchStart(e, index) {
+        if (!this.isExpanded) {
+            // First touch - expand menu and prevent link activation
+            e.preventDefault();
+            this.expand();
+            this.setSweepPosition(index);
+            this.justExpanded = true;
+            
+            // Reset justExpanded flag after a short delay
+            setTimeout(() => {
+                this.justExpanded = false;
+            }, 300);
+        } else {
+            // Menu is already expanded, allow normal touch behavior
+            this.setSweepPosition(index);
+        }
+    }
+    
+    handlePinItemClick(e, item) {
+        if (this.isTouchDevice && this.justExpanded) {
+            // Prevent link activation immediately after expansion
+            e.preventDefault();
+            return false;
+        }
+        
+        if (this.isTouchDevice && !this.isExpanded) {
+            // Expand menu on first click
+            e.preventDefault();
+            this.expand();
+            return false;
+        }
+        
+        // Allow normal link behavior (menu is expanded and not just expanded)
+        return true;
     }
     
     handleMouseEnter() {
@@ -76,9 +144,31 @@ class PinMenu {
         }, 100); // Snappier collapse
     }
     
+    handleToggleTouchStart(e) {
+        if (this.isTouchDevice) {
+            e.preventDefault();
+            if (!this.isExpanded) {
+                this.expand();
+                this.justExpanded = true;
+                setTimeout(() => {
+                    this.justExpanded = false;
+                }, 300);
+            } else {
+                this.collapse();
+            }
+        }
+    }
+    
     handleToggleClick(e) {
-        e.preventDefault();
-        this.isExpanded ? this.collapse() : this.expand();
+        if (this.isTouchDevice && this.justExpanded) {
+            e.preventDefault();
+            return;
+        }
+        
+        if (!this.isTouchDevice) {
+            e.preventDefault();
+            this.isExpanded ? this.collapse() : this.expand();
+        }
     }
     
     handleKeydown(e) {

@@ -57,17 +57,23 @@
                     </svg>
                 </div>
             </a>
-            <div class="navigation">
-                <div class="navigation-container">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="photography.html" class="nav-link">Photo</a>
-                    <a
-                        href="https://www.figma.com/@kungfury"
-                        target="_blank"
-                        class="nav-link"
-                        >Figma</a
-                    >
+            <div class="pin">
+              <div class="pin-container" id="pinMenu">
+                <div class="pin-toggle">
+                  <img src="assets/bars.svg" class="icon" alt="Menu">
                 </div>
+                <div class="pin-menu-items">
+                  <a href="https://www.figma.com/@kungfury" target="_blank" class="pin-item">
+                    <img src="assets/figma.svg" class="icon" alt="Figma">
+                  </a>
+                  <a href="index.html" class="pin-item">
+                    <img src="assets/house.svg" class="icon" alt="Home">
+                  </a>
+                  <a href="https://github.com/kungfury100" target="_blank" class="pin-item">
+                    <img src="assets/github.svg" class="icon" alt="Github">
+                  </a>
+                </div>
+              </div>
             </div>
         </header>
         <div class="app">
@@ -115,7 +121,9 @@
                 </div>
             </section>
         </div>
+        <script src="js/pin-menu.js"></script>
         <script>
+            
             $(document).ready(function(){
                 // Show color photos by default
                 $(".photo-item[data-category='bw']").hide();
