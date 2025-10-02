@@ -20,6 +20,10 @@ class PinMenu {
             return;
         }
         
+        // Get menu items for sweeping hover effect
+        this.menuItems = this.container.querySelector('.pin-menu-items');
+        this.pinItems = this.container.querySelectorAll('.pin-item');
+        
         // Add event listeners
         this.container.addEventListener('mouseenter', () => this.handleMouseEnter());
         this.container.addEventListener('mouseleave', () => this.handleMouseLeave());
@@ -28,21 +32,48 @@ class PinMenu {
         // Add keyboard support
         this.toggle.addEventListener('keydown', (e) => this.handleKeydown(e));
         
+        // Add sweeping hover effect
+        this.initSweepingHover();
+        
         console.log('Pin menu initialized');
+    }
+    
+    initSweepingHover() {
+        this.pinItems.forEach((item, index) => {
+            item.addEventListener('mouseenter', () => {
+                this.setSweepPosition(index);
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                this.clearSweepPosition();
+            });
+        });
+    }
+    
+    setSweepPosition(index) {
+        if (this.menuItems) {
+            this.menuItems.setAttribute('data-hover', index.toString());
+        }
+    }
+    
+    clearSweepPosition() {
+        if (this.menuItems) {
+            this.menuItems.removeAttribute('data-hover');
+        }
     }
     
     handleMouseEnter() {
         clearTimeout(this.collapseTimeout);
         this.expandTimeout = setTimeout(() => {
             this.expand();
-        }, 100); // Small delay to prevent accidental triggers
+        }, 50); // Faster expansion trigger
     }
     
     handleMouseLeave() {
         clearTimeout(this.expandTimeout);
         this.collapseTimeout = setTimeout(() => {
             this.collapse();
-        }, 200); // Slightly longer delay for better UX
+        }, 100); // Snappier collapse
     }
     
     handleToggleClick(e) {

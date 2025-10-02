@@ -142,7 +142,8 @@ header {
 .pin {
     position: fixed;
     bottom: 1rem;
-    left: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -150,86 +151,158 @@ header {
 }
 
 .pin-container {
+    position: relative;
     border: 1px solid var(--text);
     background: var(--backgroundBlur);
     border-radius: 50px;
     backdrop-filter: blur(8px);
-    width: 64px;
+    width: 96px;
     height: 64px;
     display: flex;
-    flex-direction: column-reverse;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: bottom center;
-    position: relative;
-}
-
-.pin-menu-items {
-    display: flex;
-    flex-direction: column-reverse;
-    height: 100%;
-}
-
-.pin-link {
-    display: flex;
-    width: 64px;
-    height: 64px;
-    justify-content: center;
     align-items: center;
-    border: none;
-    background: transparent;
-    text-decoration: none;
-    flex-shrink: 0;
+    justify-content: center;
+    /* Spring-like expansion with bounce */
+    transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background 0.15s ease,
+                border 0.15s ease,
+                box-shadow 0.15s ease;
     cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
 }
 
 .pin-toggle {
-    order: 1;
+    position: absolute;
+    width: 96px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fast fade out on expand, delayed fade in on collapse */
+    transition: opacity 0.1s ease;
+    z-index: 2;
 }
 
-.pin-link:not(.pin-toggle) {
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-    border-top: 1px solid transparent;
-}
-
-/* Expanded state */
-.pin-container.expanded {
-    height: 192px;
-    background: rgba(255, 255, 255, 1);
-    color: black;
-    box-shadow: 0 0px 30px rgba(255, 255, 255, 0.4);
-    border: 1px solid transparent;
-}
-
-.pin-container.expanded .pin-link:not(.pin-toggle) {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    border-top-color: rgba(0, 0, 0, 0.1);
-}
-
-.pin-container.expanded .pin-link:nth-child(1) {
-    transition-delay: 0.1s;
-}
-
-.pin-container.expanded .pin-link:nth-child(2) {
-    transition-delay: 0.05s;
-}
-
-.pin-link .icon {
+.pin-toggle .icon {
     width: 24px; 
     height: auto;
-    vertical-align: middle;
-    transition: filter 0.2s ease;
     filter: brightness(0) saturate(100%) invert(92%) sepia(18%) saturate(462%) hue-rotate(80deg) brightness(106%) contrast(99%);
+    transition: filter 0.15s ease;
 }
 
-.pin-container:hover .pin-link .icon {
+.pin-menu-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+    pointer-events: none;
+    /* Fast fade in, slower fade out with delay */
+    transition: opacity 0.15s ease;
+    transition-delay: 0s;
+}
+
+/* Sweeping hover background */
+.pin-menu-items::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96px;
+    height: 64px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    box-shadow: 0 0px 30px rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    transform: translateX(0);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pin-menu-items a {
+    border-bottom: 0px;
+}
+
+.pin-item {
+    width: 96px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    border-radius: 50px;
+}
+
+.pin-item .icon {
+    width: 24px;
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(92%) sepia(18%) saturate(462%) hue-rotate(80deg) brightness(106%) contrast(99%);
+    transition: filter 0.15s ease;
+}
+
+/* Show sweeping background when data-hover attribute is present */
+.pin-menu-items[data-hover]::before {
+    opacity: 1;
+}
+
+/* Sweeping positions - controlled by JavaScript */
+.pin-menu-items[data-hover="0"]::before {
+    transform: translateX(0);
+}
+
+.pin-menu-items[data-hover="1"]::before {
+    transform: translateX(96px);
+}
+
+.pin-menu-items[data-hover="2"]::before {
+    transform: translateX(192px);
+}
+
+/* Icon color change - only when the sweep is active and positioned correctly */
+.pin-menu-items[data-hover="0"] .pin-item:nth-child(1) .icon,
+.pin-menu-items[data-hover="1"] .pin-item:nth-child(2) .icon,
+.pin-menu-items[data-hover="2"] .pin-item:nth-child(3) .icon {
     filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+}
+
+/* Hover state - snappy expansion - now accommodates 3 items */
+.pin-container:hover {
+    width: 288px;
+
+}
+
+.pin-container:hover .pin-toggle {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 0s;
+}
+
+.pin-container:hover .pin-menu-items {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0.1s; /* Small delay for menu items to appear */
+}
+
+/* Non-hover state - delayed collapse */
+.pin-container:not(:hover) .pin-toggle {
+    transition-delay: 0.4s; /* Delay before toggle reappears */
+}
+
+.pin-container:not(:hover) .pin-menu-items {
+    transition-delay: 0.2s; /* Delay before menu items disappear */
+}
+
+.pin-container:not(:hover) {
+    /* Slower collapse with different easing */
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                background 0.25s ease 0.2s,
+                border 0.25s ease 0.2s,
+                box-shadow 0.25s ease 0.2s;
 }
 
 .navigation {
