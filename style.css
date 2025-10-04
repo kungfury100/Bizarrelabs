@@ -73,13 +73,7 @@ ul {
     font-family: var(--font-secondary);
 }
 
-ul {
-    margin: 24px 0;
-}
 
-ul li {
-    margin-bottom: 24px;
-}
 
 p span {
     background-color: var(--border);
@@ -102,6 +96,14 @@ h1 {
 
 h2 {
     font-size: 2.5rem;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: var(--font-secondary);
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5rem;
     line-height: 1.4;
     font-weight: 500;
     font-family: var(--font-secondary);
@@ -433,7 +435,7 @@ header {
 
 /* Case study Section */
 .study {
-    padding: 160px 0;
+    padding: 0px 0;
     width: 100%;
     display: flex;
     gap: 64px;
