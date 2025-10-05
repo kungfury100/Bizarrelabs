@@ -26,6 +26,9 @@ class PinMenu {
         this.menuItems = this.container.querySelector('.pin-menu-items');
         this.pinItems = this.container.querySelectorAll('.pin-item');
         
+        // Set dynamic width based on number of pin items
+        this.setDynamicWidth();
+        
         // Add event listeners based on device type
         if (!this.isTouchDevice) {
             // Desktop: use hover events
@@ -84,14 +87,34 @@ class PinMenu {
     
     setSweepPosition(index) {
         if (this.menuItems) {
+            // Set the position using CSS custom property
+            this.menuItems.style.setProperty('--hover-position', index);
             this.menuItems.setAttribute('data-hover', index.toString());
+            
+            // Remove previous hover states and add to current item
+            this.pinItems.forEach(item => item.classList.remove('hovered'));
+            if (this.pinItems[index]) {
+                this.pinItems[index].classList.add('hovered');
+            }
         }
     }
     
     clearSweepPosition() {
         if (this.menuItems) {
             this.menuItems.removeAttribute('data-hover');
+            this.menuItems.style.removeProperty('--hover-position');
+            
+            // Remove all hover states
+            this.pinItems.forEach(item => item.classList.remove('hovered'));
         }
+    }
+    
+    setDynamicWidth() {
+        // Calculate and set CSS custom property for dynamic width
+        const itemCount = this.pinItems.length;
+        this.container.style.setProperty('--pin-item-count', itemCount);
+        
+        console.log(`Pin menu initialized with ${itemCount} items`);
     }
     
     handleTouchStart(e, index) {

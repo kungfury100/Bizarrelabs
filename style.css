@@ -252,30 +252,19 @@ header {
     opacity: 1;
 }
 
-/* Sweeping positions - controlled by JavaScript */
-.pin-menu-items[data-hover="0"]::before {
-    transform: translateX(0);
+/* Sweeping positions - dynamically controlled by JavaScript */
+.pin-menu-items[data-hover]::before {
+    transform: translateX(calc(var(--hover-position, 0) * 96px));
 }
 
-.pin-menu-items[data-hover="1"]::before {
-    transform: translateX(96px);
-}
-
-.pin-menu-items[data-hover="2"]::before {
-    transform: translateX(192px);
-}
-
-/* Icon color change - only when the sweep is active and positioned correctly */
-.pin-menu-items[data-hover="0"] .pin-item:nth-child(1) .icon,
-.pin-menu-items[data-hover="1"] .pin-item:nth-child(2) .icon,
-.pin-menu-items[data-hover="2"] .pin-item:nth-child(3) .icon {
+/* Icon color change - only the currently hovered item */
+.pin-item.hovered .icon {
     filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 }
 
-/* Hover state - snappy expansion - now accommodates 3 items */
+/* Hover state - snappy expansion - dynamic width based on number of items */
 .pin-container:hover {
-    width: 288px;
-
+    width: calc(var(--pin-item-count, 3) * 96px);
 }
 
 .pin-container:hover .pin-toggle {
