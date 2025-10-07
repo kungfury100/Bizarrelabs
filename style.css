@@ -582,6 +582,14 @@ header {
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
+.media-item.rive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    background-color: #0F1114;
+}
+
 .media-col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

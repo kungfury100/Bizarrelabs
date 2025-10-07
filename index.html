@@ -129,7 +129,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="portfolio" class="portfolio">
                 <div class="portfolio-meta">
                     <div class="portfolio-meta-row">
@@ -186,6 +185,94 @@
                             alt="Moon Design System"
                         />
                     </div>
+                </div>
+            </section>
+             <section id="portfolio" class="portfolio">
+                <div class="portfolio-meta">
+                    <div class="portfolio-meta-row">
+                        <h2>React application</h2>
+                        <p>
+                            I built a React (Next.js) documentation site for a design system, template is based on  <a class="text-link" target="_blank" href="https://github.com/nisabmohd/Aria-Docs">Ariadocs</a>.
+                            Purpose of the docs is to connect all designer and developer resources, including Figma libraries and multiple code repositories.
+                        </p>
+                         <p>
+                            The site's stylesheet connects directly to Figma libraries, displaying live design system variables with real-time previews and examples. The home page features a Rive animation of the Moon logo.
+                        </p>
+                    </div>
+                    <div class="portfolio-meta-row">
+                        <div class="meta-item">
+                            <p>Role</p>
+                            <p>Senior Product Designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Year</p>
+                            <p>2025</p>
+                        </div>
+                        <div class="meta-item">
+                            <p>Website</p>
+                            <p>
+                                <a
+                                    class="text-link"
+                                    href="https://beta.moon.io/"
+                                    target="_blank"
+                                    >BETA.MOON.IO</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-media">
+                    <div class="media-item rive">
+                        <canvas
+                            id="moon"
+                            width="100"
+                            height="100"
+                            style="
+                                width: 240px;
+                                height: auto;
+                                border-radius: 20px;
+                            "
+                        ></canvas>
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/docs/0.png"
+                            alt="React application"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/docs/1.png"
+                            alt="React application"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/docs/2.png"
+                            alt="React application"
+                        />
+                    </div>
+                    
+                    <div class="media-item">
+                        <img
+                            src="designs/docs/3.png"
+                            alt="React application"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/docs/4.png"
+                            alt="React application"
+                        />
+                    </div>
+                    <div class="media-item">
+                        <img
+                            src="designs/docs/5.png"
+                            alt="React application"
+                        />
+                    </div>
+                    
+                    
                 </div>
             </section>
             <section class="portfolio">
@@ -533,16 +620,24 @@
         <script src="js/pin-menu.js"></script>
         <script src="https://unpkg.com/@rive-app/canvas"></script>
         <script>
-            const r = new rive.Rive({
+            const hologramRive = new rive.Rive({
                 src: "assets/hologram.riv",
-                // OR the path to a discoverable and public Rive asset
-                // src: '/public/example.riv',
                 canvas: document.getElementById("canvas"),
                 autoplay: true,
-                // artboard: "Arboard", // Optional. If not supplied the default is selected
                 stateMachines: "Play",
                 onLoad: () => {
-                    r.resizeDrawingSurfaceToCanvas();
+                    hologramRive.resizeDrawingSurfaceToCanvas();
+                },
+            });
+        </script>
+        <script>
+            const moonRive = new rive.Rive({
+                src: "designs/react/moon.riv",
+                canvas: document.getElementById("moon"),
+                autoplay: true,
+                stateMachines: "Rest",
+                onLoad: () => {
+                    moonRive.resizeDrawingSurfaceToCanvas();
                 },
             });
         </script>
