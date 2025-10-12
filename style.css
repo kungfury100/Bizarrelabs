@@ -1,16 +1,7 @@
-/*  Reset / Global Styles */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-/* Font-face and Root Variables */
-@font-face {
-    font-family: DepartureMono;
-    src:
-        url("assets/font/DepartureMono-Regular.woff") format("woff"),
-        url("assets/font/DepartureMono-Regular.woff") format("truetype");
 }
 
 :root {
@@ -26,8 +17,8 @@
             rgba(177, 241, 203, 0.2)
         )
         border-box;
-    --font-primary: "Funnel Display", sans-serif;
-    --font-secondary: "IBM Plex Mono", monospace;
+    --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-secondary: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Body and Layout */
@@ -76,7 +67,7 @@ ul {
 
 
 p span {
-    background-color: var(--border);
+    background-color: var(--backgroundBlur);
 }
 
 a {
@@ -354,7 +345,7 @@ header {
 }
 
 .primary-button {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: var(--font-secondary);
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: 500;
@@ -476,6 +467,10 @@ header {
     justify-content: space-between;
 }
 
+.text-link {
+    font-weight: 500;
+}
+
 .portfolio-meta-row {
     display: flex;
     flex-direction: column;
@@ -548,7 +543,7 @@ header {
     font-size: 1rem;
     font-weight: 500;
     color: var(--text-secondary);
-    font-family: "DepartureMono", monospace;
+    font-family: var(--font-primary);
 }
 
 .meta-item p:nth-child(2) {
@@ -580,14 +575,6 @@ header {
     box-shadow:
         rgba(14, 21, 18, 0.25) 0px 6px 12px -2px,
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-
-.media-item.rive {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    background-color: #0F1114;
 }
 
 .media-col {
