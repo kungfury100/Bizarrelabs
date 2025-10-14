@@ -30,7 +30,35 @@
             href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap"
             rel="stylesheet"
         />
-        <script async src="https://ackee-production-7e23.up.railway.app/dcph35ptdmw8o3po.js" data-ackee-server="https://ackee-production-7e23.up.railway.app" data-ackee-domain-id="45ef6fd3-9ac0-4c48-9590-992ef2a45612" data-ackee-opts='{"detailed": true, "ignoreOwnVisits": true}'></script>
+        <script>
+        // Check if we should exclude tracking
+        function shouldTrack() {
+            // Check for exclude cookie
+            if (document.cookie.includes('ackee_exclude=true')) {
+                return false;
+            }
+            
+            // Check for exclude parameter in URL
+            if (window.location.search.includes('ackee_exclude=true')) {
+                // Set cookie to remember exclusion
+                document.cookie = 'ackee_exclude=true; path=/; max-age=31536000'; // 1 year
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Only load Ackee if tracking should happen
+        if (shouldTrack()) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://ackee-production-7e23.up.railway.app/dcph35ptdmw8o3po.js';
+            script.setAttribute('data-ackee-server', 'https://ackee-production-7e23.up.railway.app');
+            script.setAttribute('data-ackee-domain-id', '45ef6fd3-9ac0-4c48-9590-992ef2a45612');
+            script.setAttribute('data-ackee-opts', '{"detailed": true}');
+            document.head.appendChild(script);
+        }
+        </script>
     </head>
     <body>
         <header>
