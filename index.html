@@ -618,15 +618,23 @@
                         const url = this.href;
                         const linkText = this.textContent.trim() || this.getAttribute('alt') || 'External Link';
                         
-                        // Track the event with Ackee
-                        if (typeof ackeeTracker !== 'undefined') {
-                            ackeeTracker.action('External Link Click', {
+                        // Track the event with Ackee using the global ackee instance
+                        if (typeof ackee !== 'undefined') {
+                            ackee.action('external-link-click', {
                                 key: 'url',
                                 value: url
                             });
-                            ackeeTracker.action('External Link Text', {
-                                key: 'text',
+                            ackee.action('external-link-text', {
+                                key: 'text', 
                                 value: linkText
+                            });
+                        }
+                        
+                        // Alternative method - try window.ackee
+                        if (typeof window.ackee !== 'undefined') {
+                            window.ackee.action('external-link-click', {
+                                key: 'url',
+                                value: url
                             });
                         }
                     });
