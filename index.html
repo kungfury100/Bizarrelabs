@@ -62,13 +62,13 @@
                   <img src="assets/bars.svg" class="icon" alt="Menu">
                 </div>
                 <div class="pin-menu-items">
-                  <a href="https://www.figma.com/@kungfury" target="_blank" class="pin-item" data-ackee-event="figma-profile">
+                  <a href="https://www.figma.com/@kungfury" target="_blank" class="pin-item">
                     <img src="assets/figma.svg" class="icon" alt="Figma">
                   </a>
                   <a href="shots.html" class="pin-item">
                     <img src="assets/camera.svg" class="icon" alt="Shots">
                   </a>
-                  <a href="https://github.com/kungfury100" target="_blank" class="pin-item" data-ackee-event="github-profile">
+                  <a href="https://github.com/kungfury100" target="_blank" class="pin-item">
                     <img src="assets/github.svg" class="icon" alt="Github">
                   </a>
 
@@ -606,6 +606,36 @@
                 onLoad: () => {
                     hologramRive.resizeDrawingSurfaceToCanvas();
                 },
+            });
+        </script>
+        <script>
+            // Track external link clicks with Ackee using event ID
+            document.addEventListener('DOMContentLoaded', function() {
+                // Wait for ackee-tracker to be available
+                setTimeout(() => {
+                    if (typeof ackeeTracker !== 'undefined') {
+                        // Create ackee tracker instance
+                        const instance = ackeeTracker.create('https://ackee-production-7e23.up.railway.app', {
+                            domainId: '45ef6fd3-9ac0-4c48-9590-992ef2a45612'
+                        });
+                        
+                        // Track external links
+                        const externalLinks = document.querySelectorAll('a[target="_blank"]');
+                        
+                        externalLinks.forEach(link => {
+                            link.addEventListener('click', function(e) {
+                                const url = this.href;
+                                const domain = new URL(url).hostname;
+                                
+                                // Track with your event ID
+                                instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
+                                    key: domain,
+                                    value: 1
+                                });
+                            });
+                        });
+                    }
+                }, 1000);
             });
         </script>
 
