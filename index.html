@@ -621,24 +621,27 @@
                         externalLinks.forEach(link => {
                             link.addEventListener('click', function(e) {
                                 const url = this.href;
-                                const domain = new URL(url).hostname;
                                 
-                                instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
-                                    key: domain,
-                                    value: 1
-                                });
+                                // Check if it's the CV download (local file)
+                                if (url.includes('karlsimmer-resume.pdf')) {
+                                    instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
+                                        key: 'CV-download',
+                                        value: 1
+                                    });
+                                } else {
+                                    // Handle external URLs
+                                    try {
+                                        const domain = new URL(url).hostname;
+                                        instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
+                                            key: domain,
+                                            value: 1
+                                        });
+                                    } catch (error) {
+                                        console.log('Could not parse URL:', url);
+                                    }
+                                }
                             });
                         });
-                        
-                        const cvLink = document.querySelector('a[href="assets/karlsimmer-resume.pdf"]');
-                        if (cvLink) {
-                            cvLink.addEventListener('click', function(e) {
-                                instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
-                                    key: 'CV-download',
-                                    value: 1
-                                });
-                            });
-                        }
                     }
                 }, 1000);
             });
