@@ -609,17 +609,13 @@
             });
         </script>
         <script>
-            // Track external link clicks with Ackee using event ID
             document.addEventListener('DOMContentLoaded', function() {
-                // Wait for ackee-tracker to be available
                 setTimeout(() => {
                     if (typeof ackeeTracker !== 'undefined') {
-                        // Create ackee tracker instance
                         const instance = ackeeTracker.create('https://ackee-production-7e23.up.railway.app', {
                             domainId: '45ef6fd3-9ac0-4c48-9590-992ef2a45612'
                         });
                         
-                        // Track external links
                         const externalLinks = document.querySelectorAll('a[target="_blank"]');
                         
                         externalLinks.forEach(link => {
@@ -627,13 +623,22 @@
                                 const url = this.href;
                                 const domain = new URL(url).hostname;
                                 
-                                // Track with your event ID
                                 instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
                                     key: domain,
                                     value: 1
                                 });
                             });
                         });
+                        
+                        const cvLink = document.querySelector('a[href="assets/karlsimmer-resume.pdf"]');
+                        if (cvLink) {
+                            cvLink.addEventListener('click', function(e) {
+                                instance.action('e74092bc-d5ec-46a8-9de0-f297a89059c2', {
+                                    key: 'CV-download',
+                                    value: 1
+                                });
+                            });
+                        }
                     }
                 }, 1000);
             });
