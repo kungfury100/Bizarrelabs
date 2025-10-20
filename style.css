@@ -21,6 +21,10 @@
     --font-secondary: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+html, .app {
+    scroll-behavior: smooth;
+}
+
 /* Body and Layout */
 body {
     background-color: var(--background);
@@ -169,7 +173,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Fast fade out on expand, delayed fade in on collapse */
     transition: opacity 0.1s ease;
     z-index: 2;
 }
@@ -192,7 +195,6 @@ header {
     justify-content: space-evenly;
     opacity: 0;
     pointer-events: none;
-    /* Fast fade in, slower fade out with delay */
     transition: opacity 0.15s ease;
     transition-delay: 0s;
 }

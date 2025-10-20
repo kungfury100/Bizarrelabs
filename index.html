@@ -342,6 +342,11 @@
                             Ethereum network and <span>Raft</span> is a platform
                             to deposit collateral and earn yield.
                         </p>
+                        <p>
+                            Web3 design was challenging since most UX patterns didn't exist yet. 
+                            I focused on incorporating gamification elements like token rewards while 
+                            ensuring the interfaces remained intuitive for everyday users.
+                        </p>
                     </div>
                     <div class="portfolio-meta-row">
                         <div class="meta-item">
@@ -601,6 +606,31 @@
                 onLoad: () => {
                     hologramRive.resizeDrawingSurfaceToCanvas();
                 },
+            });
+        </script>
+        <script>
+            // Track external link clicks with Ackee
+            document.addEventListener('DOMContentLoaded', function() {
+                const externalLinks = document.querySelectorAll('a[target="_blank"]');
+                
+                externalLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const url = this.href;
+                        const linkText = this.textContent.trim() || this.getAttribute('alt') || 'External Link';
+                        
+                        // Track the event with Ackee
+                        if (typeof ackeeTracker !== 'undefined') {
+                            ackeeTracker.action('External Link Click', {
+                                key: 'url',
+                                value: url
+                            });
+                            ackeeTracker.action('External Link Text', {
+                                key: 'text',
+                                value: linkText
+                            });
+                        }
+                    });
+                });
             });
         </script>
     </body>
