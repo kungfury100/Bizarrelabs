@@ -616,26 +616,11 @@
                 externalLinks.forEach(link => {
                     link.addEventListener('click', function(e) {
                         const url = this.href;
-                        const linkText = this.textContent.trim() || this.getAttribute('alt') || 'External Link';
+                        const domain = new URL(url).hostname;
                         
-                        // Track the event with Ackee using the global ackee instance
-                        if (typeof ackee !== 'undefined') {
-                            ackee.action('external-link-click', {
-                                key: 'url',
-                                value: url
-                            });
-                            ackee.action('external-link-text', {
-                                key: 'text', 
-                                value: linkText
-                            });
-                        }
-                        
-                        // Alternative method - try window.ackee
-                        if (typeof window.ackee !== 'undefined') {
-                            window.ackee.action('external-link-click', {
-                                key: 'url',
-                                value: url
-                            });
+                        // Track the event with Ackee using ackeeTracker.track()
+                        if (typeof ackeeTracker !== 'undefined') {
+                            ackeeTracker.track('external-link-' + domain.replace(/\./g, '-'));
                         }
                     });
                 });
