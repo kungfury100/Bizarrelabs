@@ -25,7 +25,6 @@ html, .app {
     scroll-behavior: smooth;
 }
 
-/* Body and Layout */
 body {
     background-color: var(--background);
     color: var(--text);
@@ -57,7 +56,6 @@ body.desaturated {
     padding: calc(8vw) calc(4vw);
 }
 
-/* Typography */
 p,
 ul {
     font-size: 1.4rem;
@@ -67,8 +65,6 @@ ul {
     color: var(--text-secondary);
     font-family: var(--font-secondary);
 }
-
-
 
 p span {
     background-color: var(--backgroundBlur);
@@ -105,7 +101,6 @@ h3 {
     margin: 0;
 }
 
-/* Header */
 header {
     position: fixed;
     top: 0;
@@ -158,7 +153,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Spring-like expansion with bounce */
     transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
                 background 0.15s ease,
                 border 0.15s ease,
@@ -199,7 +193,6 @@ header {
     transition-delay: 0s;
 }
 
-/* Sweeping hover background */
 .pin-menu-items::before {
     content: '';
     position: absolute;
@@ -240,22 +233,18 @@ header {
     transition: filter 0.15s ease;
 }
 
-/* Show sweeping background when data-hover attribute is present */
 .pin-menu-items[data-hover]::before {
     opacity: 1;
 }
 
-/* Sweeping positions - dynamically controlled by JavaScript */
 .pin-menu-items[data-hover]::before {
     transform: translateX(calc(var(--hover-position, 0) * 96px));
 }
 
-/* Icon color change - only the currently hovered item */
 .pin-item.hovered .icon {
     filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 }
 
-/* Hover state - snappy expansion - dynamic width based on number of items */
 .pin-container:hover {
     width: calc(var(--pin-item-count, 3) * 96px);
 }
@@ -269,20 +258,18 @@ header {
 .pin-container:hover .pin-menu-items {
     opacity: 1;
     pointer-events: auto;
-    transition-delay: 0.1s; /* Small delay for menu items to appear */
+    transition-delay: 0.1s;
 }
 
-/* Non-hover state - delayed collapse */
 .pin-container:not(:hover) .pin-toggle {
-    transition-delay: 0.4s; /* Delay before toggle reappears */
+    transition-delay: 0.4s;
 }
 
 .pin-container:not(:hover) .pin-menu-items {
-    transition-delay: 0.2s; /* Delay before menu items disappear */
+    transition-delay: 0.2s;
 }
 
 .pin-container:not(:hover) {
-    /* Slower collapse with different easing */
     transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
                 background 0.25s ease 0.2s,
                 border 0.25s ease 0.2s,
@@ -330,14 +317,12 @@ header {
 }
 
 .nav-link .icon {
-  width: 20px;   /* adjust size */
+  width: 20px;
   height: auto;
-  vertical-align: middle; /* keeps it aligned with text links */
+  vertical-align: middle;
   transition: opacity 0.3s ease;
 }
 
-
-/* Button */
 .button-group {
     display: flex;
     gap: 16px;
@@ -376,7 +361,6 @@ header {
     border: 1px solid transparent;
 }
 
-/* Hero Section */
 .hero-section {
     width: 100%;
     display: flex;
@@ -415,7 +399,6 @@ header {
     display: block;
 }
 
-/* Case study Section */
 .study {
     padding: 0px 0;
     width: 100%;
@@ -449,7 +432,6 @@ header {
     padding: 24px 0;
 }
 
-/* Portfolio Section */
 .portfolio {
     padding: 160px 0;
     width: 100%;
@@ -585,7 +567,6 @@ header {
     grid-gap: 10px;
 }
 
-/* Responsive */
 @media screen and (min-width: 1728px) {
     .app {
         padding: calc(8vw) calc(12vw);
@@ -601,6 +582,15 @@ header {
 @media (max-width: 900px) {
     .app {
         padding: calc(24vw) calc(4vw);
+    }
+    h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
     }
 }
 
