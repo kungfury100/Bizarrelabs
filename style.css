@@ -439,14 +439,10 @@ header {
     gap: 32px;
 }
 
-.study-media {
+.study-image {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    height: 100%;
-    scroll-snap-type: x mandatory;
-    padding: 24px 0;
+    justify-content: center;
 }
 
 /* Portfolio Section */
@@ -561,17 +557,17 @@ header {
     scroll-snap-type: x mandatory;
 }
 
-.media-item {
+/* Unified Image Item System */
+.image-item, .media-item, .photo-item {
     background: var(--gradient);
     border-radius: 20px;
     padding: 1px;
     margin: 0;
 }
 
-.media-item img {
+.image-item img, .media-item img, .photo-item img {
     width: 100%;
     height: auto;
-    object-fit: unset;
     border-radius: 19px;
     display: block;
     box-shadow:
@@ -646,7 +642,7 @@ header {
 }
 
 .photo-section {
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 .photo-section h2 {
@@ -654,38 +650,67 @@ header {
     margin-bottom: 40px;
 }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
+/* Responsive Grid Rules */
 @media (max-width: 900px) {
-    .photo-grid {
+    .image-grid.standard, .image-grid.photography, .photo-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .photo-grid {
+    .image-grid.standard, .image-grid.photography, .photo-grid {
         grid-template-columns: 1fr;
     }
 }
 
-.photo-item {
-    background: var(--gradient);
-    border-radius: 20px;
-    padding: 1px;
-    margin: 0;
+/* Grid Layout Systems */
+.image-grid, .photo-grid {
+    display: grid;
+    gap: 20px;
 }
 
-.photo-item img {
+/* Standard 3-column grid (index.html portfolio) */
+.image-grid.standard, .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Photography grid (shots.html) */
+.image-grid.photography {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Flexible width grid (fudy-study.html) */
+.image-grid.flexible {
+    display: grid;
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 19px;
-    display: block;
-    box-shadow:
-        rgba(14, 21, 18, 0.25) 0px 6px 12px -2px,
-        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+/* Flexible Grid Specific Rules */
+@media (max-width: 768px) {
+    .image-grid.flexible {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        align-items: start;
+    }
+}
+
+@media (min-width: 769px) {
+    .image-grid.flexible {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    
+    .image-grid.flexible .image-item {
+        display: inline-block;
+        width: auto;
+        max-width: 50%;
+        flex-shrink: 0;
+    }
+    
+    .image-grid.flexible .image-item img {
+        max-height: 400px;
+        object-fit: contain;
+    }
 }
