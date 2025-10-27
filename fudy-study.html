@@ -83,27 +83,43 @@
             <section id="portfolio" class="study">
                 <div class="study-meta">
                     <h1>Fudy Order & Pay</h1>
-                    <p>* December, 2023</p>
                     <div class="study-meta-row">                        
                         <p>
-                            Fudy was transitioning from a food delivery service to a QR-ordering product designed for restaurants, bars and venues, enabling customers to browse menus, order and pay from their devices.
-                            I led product design for a QR-ordering platform, built and maintained a component library.        
+                            I joined the company in the middle of 2023 as a Lead Product Designer.
                         </p>
-                        <p>In this case study I'll discuss how and why I created a design system for a food delivery app. I will explain the reason for this project, the problems before and future, the design principles, methodologies, and tools that I used.</p>
+                        <p>
+                            At the time Fudy was about to transition from a food delivery service to a hospitality sales and marketing platform. 
+                            Within 10 months we created a QR-ordering product for restaurants, bars and other venues. 
+                            With Order & Pay, we focused on creating an immediate, personal in-person dining experience.
+                        </p>
+                        <p>
+                            I built the foundation for a component library with design tokens, making it easier to create a flexible white-label product. 
+                            I designed web apps for both customers and kitchens. I also created unique QR code sticker templates in Figma.
+                        </p>
+                        <p>
+                            In this case study I'll discuss how and why I created a design system.
+                            I will explain the reason for this project, the problems before and future, the design principles, methodologies and tools I used.
+                        </p>
+
                         <section class="photo-section">
                             <div class="image-grid standard">
                                 <div class="image-item"><img src="designs/dinein/dine-in-1.jpg"></div>
                                 <div class="image-item"><img src="designs/dinein/dine-in-2.jpg"></div>
                                 <div class="image-item"><img src="designs/dinein/dine-in-5.jpg"></div>
                             </div>
+                            <p>Order & Pay</p>
                         </section>
                     </div>
                     <div class="study-meta-row">   
-                        <h3>Overview</h3>
+                        <h3>Problem</h3>
                         <p>
-                            Fudy had an existing Figma-facing component library, which was used for native iOS, Android and Web applications.
+                            Like many early-stage startups prioritizing speed over structure, Fudy's existing component library was hastily created during rapid product development cycles.
+                            This approach created significant design inconsistencies across the product ecosystem.
                         </p>
-                        
+                        <p>
+                            The challenge was further complicated by maintaining separate codebases for native iOS, Android, and Web applications. 
+                            Component library, or a design system, should serve as a single source of truth, that makes product development more efficient. Instead, it slowed us down.
+                        </p>
                         <section class="photo-section">
                             <div class="image-grid flexible">
                                 <div class="image-item">
@@ -114,9 +130,40 @@
                                 </div>
                             </div>
                         </section>
-
                     </div>
-
+                    <div class="study-meta-row">   
+                        <h3>Decison</h3>
+                        <p>
+                            We quickly realized, that it would be more difficult and time-consuming to try and salvage the existing component library, rather than build a new system.     
+                        </p>
+                        <p>
+                            Primary catalyst for this iniative was the launch of Figma's Variables. 
+                            This feature unlocked new opportunities for us, providing a native, scalable way to manage the design tokens essential for our white-label architecture. 
+                            We also saw it as the key to bring design and code closer to each other.
+                        </p>
+                    </div>
+                    <div class="study-meta-row">   
+                        <h3>Design tokens and variables</h3>
+                        <p>
+                            Figma Variables are the representation of design tokens. Naturally, we wanted to achieve a common shared language across our codebase.
+                        </p>
+                        <p>
+                            Previous Figma-facing design system used Styles to define color, typography and styles, which don't translate well into code. First thing was to migrate
+                            all Styles to Variables, except for gradients, which are not yet supported (at the time of writing this case study in 2024).
+                        </p>
+                        <p>
+                            Variables allowed us to create the multi-layered token structure that was essential for our white-label platform. 
+                            We created our system to separate primitive tokens (raw non-contextual values like <code>blue-500</code> or <code>16px</code>) 
+                            from semantic tokens (specific purpose, like <code>background-brand</code> or <code>container-padding</code>). 
+                        </p>
+                        <section class="photo-section">
+                            <div class="image-grid flexible">
+                                <div class="image-item">
+                                    <img src="designs/dinein/migration.jpg" alt="Fudy component system design">
+                                </div>
+                            </div>
+                        </section>
+                    </div>
 
 
 
