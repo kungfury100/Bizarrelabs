@@ -19,6 +19,7 @@
         border-box;
     --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-secondary: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-tertiary: monospace;
 }
 
 html, .app {
@@ -75,6 +76,7 @@ a {
     pointer-events: auto;
     border-bottom: 1px solid var(--text-secondary);
     color: inherit;
+    font-weight: 500;
 }
 
 h1 {
@@ -86,7 +88,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     line-height: 1.4;
     font-weight: 500;
     font-family: var(--font-secondary);
@@ -99,6 +101,20 @@ h3 {
     font-weight: 500;
     font-family: var(--font-secondary);
     margin: 0;
+}
+
+code {
+    padding: 0 2px;
+    border-radius: 4px;
+    background: var(--backgroundBlur);
+    color: var(--text-secondary);
+    font-family: var(--font-tertiary);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 300;
+    border: 1px solid var(--border);
+    white-space: nowrap;
 }
 
 header {
@@ -399,47 +415,14 @@ header {
     display: block;
 }
 
-.study {
-    padding: 0px 0;
-    width: 100%;
-    display: flex;
-    gap: 64px;
-    justify-content: center;
-}
-
-.study-meta {
-    width: 100%;
-    max-width: 1000px;
-    justify-content: center;
-    gap: 32px;
-    display: flex;
-    flex-direction: column;
-}
-
-.study-meta-row {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.study-media {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    height: 100%;
-    scroll-snap-type: x mandatory;
-    padding: 24px 0;
-}
-
-.portfolio {
+.story {
     padding: 160px 0;
     width: 100%;
     display: flex;
     gap: 64px;
 }
 
-.portfolio-meta {
+.story-meta {
     width: 50%;
     position: sticky;
     top: 0;
@@ -451,20 +434,18 @@ header {
     justify-content: space-between;
 }
 
-.text-link {
-    font-weight: 500;
-}
-
-.portfolio-meta-row {
+.story-meta {
     display: flex;
     flex-direction: column;
 }
 
-.portfolio-meta-row:first-child {
+.story-meta > div:first-child {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
 }
 
-.portfolio-meta-row:nth-child(2) {
+.story-meta > div:nth-child(2) {
     width: 90%;
 }
 
@@ -534,7 +515,7 @@ header {
     font-weight: 400;
 }
 
-.portfolio-media {
+.story-media {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -543,17 +524,49 @@ header {
     scroll-snap-type: x mandatory;
 }
 
-.media-item {
+.study {
+    padding: 0px 0;
+    width: 100%;
+    display: flex;
+    gap: 64px;
+    justify-content: center;
+}
+
+.study-meta {
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.study-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.image-section {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+}
+
+.image {
     background: var(--gradient);
     border-radius: 20px;
     padding: 1px;
     margin: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
-.media-item img {
+.image img {
     width: 100%;
     height: auto;
-    object-fit: unset;
     border-radius: 19px;
     display: block;
     box-shadow:
@@ -561,20 +574,32 @@ header {
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.media-col {
+.col-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+}
+
+.col-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+}
+
+.image-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 @media screen and (min-width: 1728px) {
     .app {
         padding: calc(8vw) calc(12vw);
     }
-    .portfolio-meta {
+    .story-meta {
         width: 60%;
     }
-    .portfolio-media {
+    .story-media {
         width: 40%;
     }
 }
@@ -583,14 +608,8 @@ header {
     .app {
         padding: calc(24vw) calc(4vw);
     }
-    h1 {
-        font-size: 3rem;
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-        line-height: 1.2;
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -615,67 +634,25 @@ header {
     .primary-button {
         width: 100%;
     }
-    .portfolio {
+    .story {
         flex-direction: column;
         gap: 24px;
         padding: 40px 0;
     }
-    .portfolio-meta {
+    .story-meta {
         width: 100%;
         position: static;
         height: auto;
         padding: 40px 0;
         gap: 40px;
     }
-    .portfolio-meta-row:nth-child(2) {
+    .story-meta-row:nth-child(2) {
         width: 100%;
     }
-    .portfolio-media {
+    .story-media {
         width: 100%;
     }
-}
-
-.photo-section {
-    padding: 80px 0;
-}
-
-.photo-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-@media (max-width: 900px) {
-    .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .photo-grid {
+    .image-grid {
         grid-template-columns: 1fr;
     }
-}
-
-.photo-item {
-    background: var(--gradient);
-    border-radius: 20px;
-    padding: 1px;
-    margin: 0;
-}
-
-.photo-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 19px;
-    display: block;
-    box-shadow:
-        rgba(14, 21, 18, 0.25) 0px 6px 12px -2px,
-        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
