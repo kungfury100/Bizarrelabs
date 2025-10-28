@@ -83,65 +83,181 @@
             <section id="portfolio" class="study">
                 <div class="study-meta">
                     <h1>Fudy Order & Pay</h1>
-                    <div class="study-meta-row">                        
-                        <h3>Snapshot</h3>
+                    <p><i>Written in 2024</i></p>
+                    <div class="study-section">                        
                         <p>
-                            Fudy was transitioning from a food delivery service to a QR-ordering product designed for restaurants, bars and venues, enabling customers to browse menus, order and pay from their devices.
-                            I led product design for a QR-ordering platform, built and maintained a component library.                
+                            I joined the company in the middle of 2023 as a Lead Product Designer.
                         </p>
-                        <p>Read full case study: <a href="fudy-study.html"
-                            >Design system and a web application</a></p>
-                    </div>
-                    <div class="study-meta-row">                        
-                        <h3>Role & timeline</h3>
                         <p>
-                            Lead Product Designer | 2023 – 2024
+                            At the time Fudy was about to transition from a food delivery service to a hospitality sales and marketing platform. 
+                            Within 10 months we created a QR-ordering product for restaurants, bars and other venues. 
+                            With Order & Pay, we focused on creating an immediate, personal in-person dining experience.
                         </p>
-
+                        <p>
+                            I built the foundation for a component library with design tokens, making it easier to create a flexible white-label product. 
+                            I designed web apps for both customers and kitchens. I also created unique QR code sticker templates in Figma.
+                        </p>
+                        <p>
+                            In this case study I'll discuss how and why I created a design system.
+                            I will explain the reason for this project, the problems before and future, the design principles, methodologies and tools I used.
+                        </p>
+                        <div class="image-section">
+                            <div class="col-3">
+                                <div class="image">
+                                    <img src="fudy/screenshot-1.jpg" alt="Fudy screenshot 1">
+                                </div>
+                                <div class="image">
+                                    <img src="fudy/screenshot-2.jpg" alt="Fudy screenshot 2">
+                                </div>
+                                <div class="image">
+                                    <img src="fudy/screenshot-3.jpg" alt="Fudy screenshot 3">
+                                </div>
+                            </div>
+                            <p>Order & Pay</p>
+                        </div>
                     </div>
-                    <div class="study-meta-row">                        
-                        <h3>Success criteria</h3>
-                        <ul>
-                            <li>Create an intuitive, reliable in-venue ordering experience.</li>
-                            <li>Build a flexible, white-label product adaptable for multiple venues through Figma variables.</li>
-                            <li>Develop a design system foundation to ensure consistency across apps and marketing.</li>
-                        </ul>
+                    <div class="study-section">   
+                        <h2>Problem</h2>
+                        <p>
+                            Like many early-stage startups prioritizing speed over structure, Fudy's existing design system was hastily created during rapid product development cycles.
+                        </p>
+                        <p>
+                            The challenge was further complicated by maintaining separate codebases for native iOS, Android, and Web applications. 
+                            Component library, or a design system, should serve as a single source of truth, that makes product development more efficient. Instead, it slowed us down.
+                        </p>
+                        <div class="image-section">
+                            <div class="col-2">
+                                <div class="image">
+                                    <img src="fudy/component-1.jpg" alt="Component variants">
+                                </div>
+                                <div class="image">
+                                    <img src="fudy/component-2.jpg" alt="Component properties">
+                                </div>
+                            </div>
+                            <p>Component properties</p>
+                        </div>
                     </div>
-                    <div class="study-meta-row">                        
-                        <h3>Deliverables</h3>
-                        <ul>
-                            <li>Web applications for customers, kitchens and admin.</li>
-                            <li>Design System and component library built using Figma.</li>
-                            <li>Marketing design components, including templates and QR code sticker layouts.</li>
-                        </ul>
+                    <div class="study-section">   
+                        <h2>Decision</h2>
+                        <p>We quickly realized that rebuilding would be more efficient than salvaging the existing component library. 
+                            The primary catalyst for this initiative was the launch of Figma's Variables, which provided the technical foundation we needed.</p>
                     </div>
-                    <div class="study-meta-row">                        
-                        <h3>Highlights</h3>
-                        <ul>
-                            <li>Led the design of both customer-facing and kitchen web apps, ensuring clarity and efficiency on both ends.</li>
-                            <li>Established the foundation for a scalable component library using Figma’s Variables, improving cross-platform consistency.</li>
-                            <li>Applied Atomic and Modular Design principles to improve reusability and flexibility of components.</li>
-                        </ul>
+                    <div class="study-section">   
+                        <h2>Design tokens and variables</h2>
+                        <p>
+                            Figma Variables are the representation of design tokens. Naturally, we wanted to achieve a common shared language across our codebase.
+                            Variables allowed us to create the multi-layered token structure that was essential for our white-label platform. 
+                        </p>
+                        <p>
+                            Previous Figma-facing design system used Styles to define color, typography and styles, which don't translate well into code. First thing was to migrate
+                            all Styles to Variables.
+                        </p>
+                        <p>
+                            I created a collection for base color (or primitives) variables and migrated all the color values from the Styles to variables.
+                            Each color was organized into subcollections and were expanded into color ramps based on Material Design.
+                        </p>
+                        <div class="image-section">
+                            <div class="image">
+                                <img src="fudy/migration.jpg" alt="Migration from Styles to Variables">
+                            </div>
+                            <p>Migration from Styles to Variables</p>
+                        </div>
+                        <p>
+                            Next step was to create semantic (or alias) variables, named them by their actual purpose, to show how and where the variables are used. 
+                            I identified in which areas the colors will be used and grouped the tokens by their matching purpose: 
+                            surfaces, buttons, texts, icons, cards, labels, forms, alerts, etc. Within each group, I further grouped tokens by their exact usage, for example:
+                        </p>
+                        <p>
+                            <code>primary-button-surface</code>,
+                            <code>primary-button-text</code> and
+                            <code>primary-button-icon</code>
+                        </p>
+                        <p>It was difficult to overcome the desire to remain minimalist, but it turned out that it’s wiser to have rather more tokens than less 
+                            - it will help the design system be more flexible in the future and offer more detailed theming.</p>
                     </div>
-                    <div class="study-meta-row">                        
-                        <h3>Constraints</h3>
-                        <ul>
-                            <li>Legacy inconsistencies in the previous design system caused initial delays.</li>
-                            <li>Balancing product speed (innovation) with system stability (design governance).</li>
-                        </ul>
+                    <div class="study-section">
+                        <h2>Atomic design</h2>
+                        <p>
+                            I adopted Atomic Design principles, that divides UI into small, reusable and flexible components. 
+                            On the atomic level, I defined text styles, icons and elevations. Atoms were combined into molecules. 
+                            Multiple molecules put together formed an Organism.
+                        </p>
+                        <div class="image-section">
+                            <div class="image">
+                                <img src="fudy/atomic.jpg" alt="Atomic component">
+                            </div>
+                            <p>Atomic component</p>
+                        </div>
+                        <p>
+                            I defined text styles, icons and elevations as atoms. Atoms were then combined into molecules through nested instances. 
+                            a button molecule contains text and icon atoms.
+                            Multiple molecules make an organism. For instance, two buttons nested within an auto-layout container form an organism.
+                        </p>
+                        <p>
+                            It's easier to reuse components this way while keeping the interface consistent.
+                            Additionally, all team members share a common vocabulary and understand how different elements are constructed.
+                        </p>
                     </div>
-                    <div class="study-meta-row">                        
-                        <h3>Outcome</h3>
-                        <ul>
-                            <li>Delivered a clean, semantic design system that reduced design debt and increased alignment between design and development.</li>
-                            <li>Enabled faster iteration cycles for new restaurant partners through reusable, themeable design tokens.</li>                        </ul>
+                    <div class="study-section">
+                        <h2>Modular design</h2>
+                        <p>
+                            Modular design, furthermore, breaks down design into smaller parts. 
+                            Each module serves a specific function or displays specific content. 
+                            These modules can be combined and reused across the UI. 
+                        </p>
+                        <p>
+                            Meanwhile most of the modules contain nested instances (molecules, atoms), which can be swapped out, giving the design system even more flexibility. 
+                            It makes components easier to maintain, debug and scale.
+                        </p>
+                        <div class="image-section">
+                            <div class="image">
+                                <img src="fudy/modules.jpg" alt="Modular design">
+                            </div>
+                            <p>Modules</p>
+                        </div>
                     </div>
-                    <div class="study-meta-row">                        
-                        <h3>Links & evidence</h3>
-                        <ul>
-                            <li>Case study: <a href="fudy-study.html"
-                            >Design system and a web application</a></li>
-                        </ul>
+                    <div class="study-section">
+                        <h2>Theming</h2>
+                        <p>
+                            Variables and tokens allowed us to create modes (or themes) on a whim. 
+                            This also aligned with the business goals, by giving our business clients chance to keep their brand’s face.
+                        </p>
+                        <p>
+                            Some business users prefer light mode, some prefer dark mode. That might depend on the environment they work in.
+                            Some businesses have a strong brand and they want to keep that experience, 
+                            when end user are using our product at the location of the business.
+                        </p>
+                        <div class="image-section">
+                            <div class="image">
+                                <img src="fudy/theming.jpg" alt="Theming with variable modes">
+                            </div>
+                            <p>Theming with variable modes</p>
+                        </div>
+                    </div>
+                    <div class="study-section">
+                        <h2>Impact</h2>
+                        <p>
+                            New design system is set up following the best design practises, while also using Figma's latest features, like auto-layout, variables, variable modes and advanced prototyping. 
+                            This will allow product team to rely on this system and trust it as a single source of truth. 
+                            Overall it will make entire product development more efficient and transparent.
+                        </p>
+                    </div>
+                    <div class="study-section">
+                        <h2>Conclusion</h2>
+                        <p>
+                            I recently came upon an article by Josh Clark, <a target="_blank" href="https://bigmedium.com/ideas/design-system-pace-layers-slow-fast.html">"Ship Faster by Building Design Systems Slower"</a>, who introduced me to the principle of 
+                            Pace Layers, which states that successful design systems move more slowly than the products they support. 
+                            Product is a fast layer, which innovates and Design System is a slow layer, which stabilizes. 
+                            When that design system is poorly developed, it will slow the product layer.
+                        </p>
+                        <p>
+                            I find myself really resonating with this statement and I've experienced first-hand, 
+                            what will happen with the design system and the product itself, when the design system is rushed.
+                        </p>
+                        <p>
+                            The timing of this project has been perfect for me, since I got to learn new software features while I was building a design system. 
+                            I collaborated with developers, took into account their perspectives and hopes and I believe the result is something to be proud of. 
+                        </p>
                     </div>
                 </div>
             </section>

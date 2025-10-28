@@ -78,6 +78,7 @@ a {
     pointer-events: auto;
     border-bottom: 1px solid var(--text-secondary);
     color: inherit;
+    font-weight: 500;
 }
 
 h1 {
@@ -89,7 +90,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     line-height: 1.4;
     font-weight: 500;
     font-family: var(--font-secondary);
@@ -118,7 +119,6 @@ code {
     white-space: nowrap;
 }
 
-/* Header */
 header {
     position: fixed;
     top: 0;
@@ -253,22 +253,18 @@ header {
     transition: filter 0.15s ease;
 }
 
-/* Show sweeping background when data-hover attribute is present */
 .pin-menu-items[data-hover]::before {
     opacity: 1;
 }
 
-/* Sweeping positions - dynamically controlled by JavaScript */
 .pin-menu-items[data-hover]::before {
     transform: translateX(calc(var(--hover-position, 0) * 96px));
 }
 
-/* Icon color change - only the currently hovered item */
 .pin-item.hovered .icon {
     filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 }
 
-/* Hover state - snappy expansion - dynamic width based on number of items */
 .pin-container:hover {
     width: calc(var(--pin-item-count, 3) * 96px);
 }
@@ -282,20 +278,18 @@ header {
 .pin-container:hover .pin-menu-items {
     opacity: 1;
     pointer-events: auto;
-    transition-delay: 0.1s; /* Small delay for menu items to appear */
+    transition-delay: 0.1s;
 }
 
-/* Non-hover state - delayed collapse */
 .pin-container:not(:hover) .pin-toggle {
-    transition-delay: 0.4s; /* Delay before toggle reappears */
+    transition-delay: 0.4s;
 }
 
 .pin-container:not(:hover) .pin-menu-items {
-    transition-delay: 0.2s; /* Delay before menu items disappear */
+    transition-delay: 0.2s;
 }
 
 .pin-container:not(:hover) {
-    /* Slower collapse with different easing */
     transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
                 background 0.25s ease 0.2s,
                 border 0.25s ease 0.2s,
@@ -343,14 +337,12 @@ header {
 }
 
 .nav-link .icon {
-  width: 20px;   /* adjust size */
+  width: 20px;
   height: auto;
-  vertical-align: middle; /* keeps it aligned with text links */
+  vertical-align: middle;
   transition: opacity 0.3s ease;
 }
 
-
-/* Button */
 .button-group {
     display: flex;
     gap: 16px;
@@ -389,7 +381,6 @@ header {
     border: 1px solid transparent;
 }
 
-/* Hero Section */
 .hero-section {
     width: 100%;
     display: flex;
@@ -428,45 +419,14 @@ header {
     display: block;
 }
 
-/* Case study Section */
-.study {
-    padding: 0px 0;
-    width: 100%;
-    display: flex;
-    gap: 64px;
-    justify-content: center;
-}
-
-.study-meta {
-    width: 100%;
-    max-width: 1000px;
-    justify-content: center;
-    gap: 32px;
-    display: flex;
-    flex-direction: column;
-}
-
-.study-meta-row {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.study-image {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Portfolio Section */
-.portfolio {
+.story {
     padding: 160px 0;
     width: 100%;
     display: flex;
     gap: 64px;
 }
 
-.portfolio-meta {
+.story-meta {
     width: 50%;
     position: sticky;
     top: 0;
@@ -478,20 +438,18 @@ header {
     justify-content: space-between;
 }
 
-.text-link {
-    font-weight: 500;
-}
-
-.portfolio-meta-row {
+.story-meta {
     display: flex;
     flex-direction: column;
 }
 
-.portfolio-meta-row:first-child {
+.story-meta > div:first-child {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
 }
 
-.portfolio-meta-row:nth-child(2) {
+.story-meta > div:nth-child(2) {
     width: 90%;
 }
 
@@ -561,7 +519,7 @@ header {
     font-weight: 400;
 }
 
-.portfolio-media {
+.story-media {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -570,15 +528,47 @@ header {
     scroll-snap-type: x mandatory;
 }
 
-/* Unified Image Item System */
-.image-item, .media-item, .photo-item {
+.study {
+    padding: 0px 0;
+    width: 100%;
+    display: flex;
+    gap: 64px;
+    justify-content: center;
+}
+
+.study-meta {
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.study-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.image-section {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+}
+
+.image {
     background: var(--gradient);
     border-radius: 20px;
     padding: 1px;
     margin: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
-.image-item img, .media-item img, .photo-item img {
+.image img {
     width: 100%;
     height: auto;
     border-radius: 19px;
@@ -588,21 +578,32 @@ header {
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.media-col {
+.col-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+}
+
+.col-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
 }
 
-/* Responsive */
+.image-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 @media screen and (min-width: 1728px) {
     .app {
         padding: calc(8vw) calc(12vw);
     }
-    .portfolio-meta {
+    .story-meta {
         width: 60%;
     }
-    .portfolio-media {
+    .story-media {
         width: 40%;
     }
 }
@@ -610,6 +611,9 @@ header {
 @media (max-width: 900px) {
     .app {
         padding: calc(24vw) calc(4vw);
+    }
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -634,140 +638,25 @@ header {
     .primary-button {
         width: 100%;
     }
-    .portfolio {
+    .story {
         flex-direction: column;
         gap: 24px;
         padding: 40px 0;
     }
-    .portfolio-meta {
+    .story-meta {
         width: 100%;
         position: static;
         height: auto;
         padding: 40px 0;
         gap: 40px;
     }
-    .portfolio-meta-row:nth-child(2) {
+    .story-meta-row:nth-child(2) {
         width: 100%;
     }
-    .portfolio-media {
+    .story-media {
         width: 100%;
     }
-}
-
-.photo-section {
-    padding: 40px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.photo-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.photo-section p {
-    text-align: center;
-}
-
-/* Responsive Grid Rules */
-@media (max-width: 900px) {
-    .image-grid.standard, .image-grid.photography, .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .image-grid.standard, .image-grid.photography, .photo-grid {
+    .image-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-/* Grid Layout Systems */
-.image-grid, .photo-grid {
-    display: grid;
-    gap: 20px;
-}
-
-/* Standard 3-column grid (index.html portfolio) */
-.image-grid.standard, .photo-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-/* Photography grid (shots.html) */
-.image-grid.photography {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-/* Flexible width grid (fudy-study.html) */
-.image-grid.flexible {
-    display: grid;
-    width: 100%;
-}
-
-/* Flexible Grid Specific Rules */
-@media (max-width: 768px) {
-    .image-grid.flexible {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        align-items: start;
-    }
-}
-
-@media (min-width: 769px) {
-    .image-grid.flexible {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
-        justify-content: center;
-    }
-    
-    .image-grid.flexible .image-item {
-        display: inline-block;
-        width: auto;
-        max-width: 50%;
-        flex-shrink: 0;
-    }
-    
-    .image-grid.flexible .image-item img {
-        max-height: 400px;
-        object-fit: contain;
-    }
-3, 1fr);
-}
-
-/* Flexible width grid (fudy-study.html) */
-.image-grid.flexible {
-    display: grid;
-    width: 100%;
-}
-
-/* Flexible Grid Specific Rules */
-@media (max-width: 768px) {
-    .image-grid.flexible {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        align-items: start;
-    }
-}
-
-@media (min-width: 769px) {
-    .image-grid.flexible {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
-        justify-content: center;
-    }
-    
-    .image-grid.flexible .image-item {
-        display: inline-block;
-        width: auto;
-        max-width: 50%;
-        flex-shrink: 0;
-    }
-    
-    .image-grid.flexible .image-item img {
-        max-height: 400px;
-        object-fit: contain;
     }
 }
