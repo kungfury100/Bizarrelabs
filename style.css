@@ -601,6 +601,9 @@ header {
     }
     .story-media {
         width: 40%;
+        gap: 24px;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -651,6 +654,9 @@ header {
     }
     .story-media {
         width: 100%;
+        gap: 24px;
+        display: flex;
+        flex-direction: column;
     }
     .image-grid {
         grid-template-columns: 1fr;
