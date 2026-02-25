@@ -1,0 +1,843 @@
+- What did I do
+mis hetkel oleksid sa rahul disainisusteemiga?
+
+22 September
+- Refactored the entire CSS variables display component in the Moon Docs. Code is slightly shorter so far but the component is much more efficient and scalable. I can also understand how it works. It can also read the moon-core.css file directly. There are some parsing rules.
+- With Hugo I am creating game control patterns for the minigames like Baccarat, Dice a
+
+19 September
+- Making updates to the v1 community file
+- Moved the Project around in Figma
+- About the Figma community files, seems like best way from Figma users perspective is to merge all components and tokens into one file. Because being able to manage libraries starts with a Professional plan. But then having everything in one file can be complicated and maybe automation won’t work.
+- Probably makes sense to create a duplicate Core and Component files. But not necessarily. We could run with one Core library and as long as people who have taken our component and hasn’t changed the Core library to something else they will get updates. And the same updates are inhouse. For us it’s one Core. But do we want them to always see Moon, Bitcasino and Sportsbet theme.
+- Actually with our own plugin the swap to another Core library is easy.
+￼
+18 September
+- Still working on the token display list React component
+- Accordion
+- Bitcasino
+
+17 September
+- Started to implement the DocSearch, created a crawler. A
+- Still working on the component to display tokens on the docs site, yesterday was working on more complex token types, text styles (or classes) or token collections with multiple modes.
+- Added couple of new semantic background colors, alphas for each semantic. Seems that for Soft component variants, using the alpha color results a better and more natural look, instead of using a very low contrast solid color.
+- Made the change of bg tokens in context collection Soft mode.
+
+16 September
+- Dropdown strip down and recreating dropdown content in BO and SB libraries
+- Renamed variable collection and published all the component libraries again
+- React component to display list of variables
+
+15 September
+- Started to create a React component to display list of tokens. It’s a nice visual table with variable name, value and preview box.
+- Issue is that it doesn’t load all variables for some reason.
+- Renamed sizing variables in Figma
+
+12 September
+- Got feedback that our Alert and Snackbar are ugly
+- Discussions about component default states, bare minimum 
+
+11 September
+- Add some radius tokens to the Product collection
+- Bottom sheet
+- SB Bottom sheet style vs BO Dialog style
+- Bottom sheet, Dialog, Drawer can have two styles: with floating action buttons in absolute position, and with a separate title section that has title text and inline action buttons. Headless components are used by SB
+
+10 September
+- Created a bunch of branches in Figma for scaling adjustments, also created Jira tickets and wrote to Notion.
+- Chat with Ilja about Card component and Balanced (or others) not being able to develop for themselves 
+- As I understand, Balanced only has full stack developers who actually are back end developers. So they don’t have capabilities to code new templates, they kind of expect Moon to do everything, from components such as Sidebar or flow.
+- Nadja, where are BO specific components/templates placed?
+
+28 August
+- Worked on Alert and Snackbar components in branches. Both of the components have buttons as a subcomponents, but they didn’t match the main component size. Both Snackbar and Alert are Lg in terms of their paddings, radiuses and other properties, but subcomponents were Sm. 
+- If I’m done I’ll show the changes to Dima and later merge with the main file.
+- Meeting notes: 
+- * Can’t tell that every product can create their own variants. Current Figma shares Variants across all products.
+- * Probably there shouldn’t be such case either that they need to start adding Variants.
+- * What does it mean?
+
+- * Inconsistencies you have mentioned before are nothing to do with either using or not using the MDS
+- * Figma facing & Code facing design system
+- * Designers are using the design system
+- * I also see a lot of inconsistencies in legacy designs, luckily in design it’s easier to just continue with building with new components
+- * There can be a lot of reasons for that but as of today I feel there’s a good collaboration between me, Bo, Fintech, Casino and Betting designers
+
+27 August
+- Punch of different meetings. Pavel showed me a little bit how Wolt has done their design system. It’s called Alchemy.
+- Some issues in Figma regarding the hidden and published components. I would like to hide all base components, that I’m using to make a full component and those base components are not supposed to be not used on their own, but I still need to update the base components, but what happens if they are hidden is that the updates will be available with a delay or sometimes not at all. For example I have table cell content types as a base component, and I’m adding some content types every once in a while, and then those content types won’t become available for the user of this component.
+- Did a nice improvement to a Notion sheet that includes some insider information about the design system
+- Fixed a couple of inconsistencies with default variants and token usage patterns.
+
+25 August
+- We have text styles (or composite tokens) for multiple sizes, and for multiple weights inside each size. Added an unique font weight token for each of these weight modifiers so that automation would be more straight forward.
+- Updated all the links on the documentation site.
+- Updated the Sidebar and File system React components to be able to display “Coming soon” tag and disable the link.
+- Ran into a series of errors when I was trying to add a new page. Couldn’t fix it with either Gemini or Copilot, had to reset to a previous Commit.
+
+22 August
+- Library updates
+- Some updates for the Table component, added a Placeholder table cell variant 
+- Discussion with Hugo about the 3D logo for the website
+- Discussion with Nadja about Figma libraries
+
+21 August
+- Spent some time on writing documentation in Figma files and also the web site.
+- Dima started to update Moon UI based on the new Figma libraries so we hy ad some chats about that
+- I mistakenly removed specific text style toke  - or composite tokens - from the Core library because they are not really useful for Figma usage, but forgot they are needed for CSS. Added back the variables.
+- Did some other minor optimisations for the variables for my main Core and External Core libraries
+- Worked a while on the forbidden project. 
+
+19 August
+- Discussions about additional sizes for components, such as Card and Alert. Need to understand exactly in what context these things are used…
+- I finished one post in the Knowledgebase
+- Chats with Hugo about the landing page
+
+18 August
+- Ksenia asked helped with a component.
+- Managed to get rid of some old Bo dependencies by deleting some unused components.
+- Our current Alert component is following the Lg size scale,  I have a request from Balanced to add sjzes for Alert.
+- I am under Stefano now
+- Landing page design with Hugo.
+
+12 August
+- Removed size property from base MDS Input component. Instead, it’s broken into separate components, to avoid conflicting size properties later while using templates.
+- Started making Figma files more pretty: Cover, Documentation, Component, Base components.
+- Had a chat with Nadja how to approach Menu component with nested start item instance which size can be changed.
+
+￼
+￼
+11 August
+- Table cell and title data types: input, select, expandable/collapsable, numeric. 
+- Hover and Selected states for table rows.
+- Moved Figma project to the Design System team
+- Started to assign component libraries to specific figma workspaces as approved library and default modes.
+
+8 August
+- Egert no longer our manager
+- Finalised Table with its common cell data
+- Connected with Krisztina from OneTouch
+
+7 August
+- Search input combined with Select to change context for Sportsbet (Edvin)
+- Recreated a Breadcrumb component, for example removed paddings from the component to treat it more like a text link
+- Made Focus state for all components brighter
+- 
+
+6 August
+- Added payment method symbols
+- Added one new, a smaller, size for the Segmented control
+- Added a new variant for the Pagination, also added optional extra icon buttons the start and end position to be used as jump back to start or to end.
+
+5 August
+- Added couple of new country flags to the assets library, based on the ticket Roberto created.
+- About to add 11 more payment method symbols.
+- Added Kbd component which is used in List, Menu and Search input.
+- Added a Textarea template with separate placeholder and user inserted value types.
+- Moon logo challenge.
+- Changed size variant naming of Segmented control to reflect outer container dimensions instead of internal button size: sm → md, md → lg.
+
+1 August
+- Paragraph spacing tokens for the typography styles
+- Started to work on a Bottom sheet pattern
+- Adjusted the widths of the Circular progress to match the Bitcasino’s progress around the Avatar
+- Bitcasino sidebar
+
+31 July
+- Started to rebuild Bitcasino’s sidebar. As of now it consists of a Menu item, Accordion
+- Making adjustments to the components
+- Added missing components to the new structure
+
+30 July
+- Bunch of discussions with Hugo on how to proceed with Bitcasino designs. He will just start creating new designs and step by step rebuilding older components with the new components and tokens. Hopefully developers will start picking it up.
+- Added missing components to the new structure
+- Created a new component Card for Bo.
+
+29 July
+- Finished migrating scaling tokens. Restructured semantic sizing tokens, much more clear compared to previous, is not aligned with Tailwind anymore. Had a chat with Harry about this as well. Everything according to DTCG guidelines.
+- Added Avatar, Authenticator and Textarea components to the new structure.
+- Look into Bombay wallet
+
+28 July
+- Look into Bombay wallet
+- Restructured Scale collection tokens to better support current Figma strategy, also now according to DTCG guidelines.
+
+July summary tl;dr - putting new components into Sb, Bc and Bo designs, one shared components library.
+
+1. New strategy for Moon's Figma libraries. Each component is in a separate library (or file), and can be used directly by Sb, Bc and Bo designers. Ksenia also connected in to this library to help her visualise Cashier designs in Sb/Bc styles. Primary benefit is having one source of components for our main products (and yes, all styling can still be unique for each product, for example Sb has different font); more control over version history and publishing; more space for the components and variables. Sucky thing about the change of strategy is to now wait again for the devs to pick it up. https://www.figma.com/files/project/408714341
+2. I've been working together a lot with Ilja, Hugo and Rustam: Bunch of templates for the Bo, such as Tag select, Input types and Dropdowns; Rebuilding Bitcasino's minigame designs with the new components, so far Plinko has been done; Created the Sidebar component for the Sportsbet based on Rustam's designs, it includes components from Moon, but Accordion is heavily modified. This is where I'm hoping devs can use Accordion from Moon and use these comments to override necessary changes.
+3. Adjusted Empire's, Livecasino's, Bitcasino's and Sportsbet's Core libraries since most of the colors (except primary brand) were wrong and not matching with current Live products. Thanks to Ksenia for being helpful and a sniper to spot these differences. We decided to adjust all the colors to match the current live products.
+4. In the beginning of July deployed the new documentation site which is still in beta, but has the concept I'm chasing. It's a React documentation based on open-source template. My idea is to make it interactive as possible, visitors being able to see components and UI in their desired color and style.
+5. Moon's brand colors are now aligned with Yolo's brand, also asked Mariia if she can do a new logo with Yolo style. Every other visual aspect is according to what Bo needs, mostly.
+----
+Will continue with the components, because I have people actively using these components now, and I'm getting good feedback. Some components such as Drawer, Dialog, Dropdown, which previously were just empty containers, now have some default content inside them.
+
+My biggest blockers will be aligning this with the devs and Dima, when he gets back from the vacation. 
+
+25 July 
+- Bombay wallet
+
+24 July
+- Still fine-tuning the colours for the brands but seems stable now 
+- Connected my new library with Cashier so Ksenia can preview her designs in the modes i’ve created
+- SB Accordion, Menu and Sidebar
+
+23 July
+- Dropdowns
+- Gathered font styles from Sportsbet
+- Added a couple of components to the new library setup
+- Tags select
+
+22 July
+- Still something wrong with Sb background colors
+- Need to get text styles with Averta font from Rustam
+- Updated current Sb and Bc core libraries 
+- Built dropdown patterns with Ilja
+- Created Slider component
+- Created an Input for Plinko
+- 
+
+21 July
+- Fine-tuning color palettes of Sb, Bc and Moon. Can do it now because they are now actively being applied across the UI.
+- Fixed the palettes of Empire Core, today need to fix LiveCasino. Basically need to just generate 12-step shades for each of the hue.
+- Continued working with Rustam and Sportsbet, helped create him a bottom navigation bar component. Some confusion about the font that Sportsbet will be using, now it’s settled, it is DM Sans instead of Averta.
+- Started recreating Hugo’s mini game designs with MDS. These games are used in Sb and Bc. There are some custom components as well, need to see how it’s best to do them using as much Moon as possible.
+
+17 July
+- Fixed color palettes for Sportsbet, currently in the new file, will also update in the Core file which Cashier is using
+- Need to align some more stuff with Rustam and then Ksenia
+- Tried to replicate Sportsbet’s Sidebar with our Accordion and Menu items. Didn’t work out. Can use only Menu.
+
+16 July
+- Helped set up new components and tokens for Rustam, will now push more for designers to use these components
+- Hugo will also start using for Bitcasino, he showed me some of the game designs
+- New symbols
+- Empire LiveCasino
+
+14 July
+- Continued putting components into separate files and connecting with the MDS Semantics library
+- Talking with Ilja a lot and how he wants to use components
+
+9 July
+- Working together with Nadja to debug documentation errors and deploy the site.
+- Talks with Ilja and Egert, they require a different Figma structure.
+
+8 July
+- New colors in Core library to match Yolo brand
+- Discussions with Ilja about the colors and their usage
+- Deleted some unused semantic variables which got a little too specific maybe
+- Two topics with Dima, components into separate files and get rid of some variables (pics on desktop)
+
+16 June
+- Was preparing for another demo yesterday between other designers and after that i reiterated plugin designs and left notes/comments for mario. also moon docs!
+
+11 June
+- Working with the documentation still, managed to modify a couple of the documentation components to get more expressive result
+- I realized I need HTML/CSS replica components built in the documentation, current SVG image thing is not very scalable
+- Wrote a bunch of stuff for components
+
+9 June
+- Documentation, i have written a quickstart article for designers
+- Demos
+
+5 June
+- Found out that can’t update plugin because we need to reverify the account ownership.
+- Discussed with Egert, we need to put each component into a separate file: versioning, more collections for a components (more power), less library updates, easier maintenance, products can choose which components to install.
+- I was playing around with a new documentation template built with Next.js
+- Also creating a quick design for Harry which would include contextual tokens, aka matrix variable modes. 
+
+4 June
+- 10 minutes to create and map e a new component library
+- But can’t make any changes to plugin’s community page for some reason, the image updated though, i wrote to support.
+- Tried the import/export between Tokens Studio and Figma and tested the token types and how will they talk between each other.
+- We have a chat in Slack with the TS platform guys, so we have the direct contact with them if we want to ask anything. They are super helpful.
+- Showcased variables to Ilja. We have agreed that he will keep using Moon components for BO templates even though he is doing stuff for Labs at the moment.
+- 
+
+2 June
+- Design critique (Rustam’s Sportsbet)
+- Design demo (Executive level people)
+- TS demo for Moon team
+
+26 May - 30 May
+- BO templates handover to Ilja
+- Tokens.Studio
+- Figma plugin
+
+29 May
+- Demo with Tokens Studio platform. A lot of contextual themes, not just light/dark mode. Accessible, high density, light theme või regular, loose density, light theme jne jne.
+- New product designer
+- Tried Mario’s plugin, it seems to working perfectly, I will try some more today.
+
+27 May
+- Empire and LiveCasino
+
+26 May
+- Design critique about Moon documentation navigation and information architecture
+- Vibe coding with Vercel
+- 
+
+19 - 23 May
+- BO templates
+- Components such as: different Input types, Navigations, Button groups, Segmented buttons, Dropdown buttons, Tags, Table data, new Assets
+- Plugin, Github, Vercel
+
+20 May
+- BO templates
+
+19 May
+- BO templates
+- 
+
+16 May
+- BO templates
+
+15 May
+- We need to discuss the option of putting each components in a separate file. Branching. Versioning. More safe. Easier to publish. More granual control. Better Token architecture.
+- BO templates
+- Found the perfect plugin for our Figma business
+
+14 May
+- Couple of updates for Components libraries, such as gap and stroke tokens for form elements.
+- Long discussions about the icons and their licensing. Already tightened the screws for who can view/edit the library.
+- Added two payment method symbols to the library.
+- Chat with Egert about BO Figma files, we will talk more next week.
+
+13 May
+- Updated Sportsbet component library
+
+12 May
+- Rewatched Figma’s keynote
+- Rewatched Ashley’s business update
+- Quick catch up with Ksenia
+- Ghost variables
+- Had a chat with Mario about the plugin
+
+14 April
+- Started updating the Core libraries of other products to sync with the latest changes
+- Some of the Core libraries which no one has used at all, those small inactive products, need a bit more updating, so it will take a while
+- Dima had an idea to add separate primitive tokens for font-sizes
+- We had a design critique session yesterday with all the designers, including designers from Live88
+
+2 April
+- Iteration for components and token structure.
+
+31 April
+- Had a debate with ChatGPT whether to use modes for Scale collections or not.
+- It messes with the component modifiers such as Inset Label for Inputs and Selects and secondary labels for largest buttons.
+- Using modes for Scales assumes that designers would want to switch sizes frequently. They actually end up with couple of sizes and will stick to them. 
+- Using physical variants for such components would be easier to manage, they can simply delete unused variants/sizes instead of dragging along all the sizes through all the components. 
+- Physical variants give a better overview probably as well, 
+
+24 - 28 March
+- Unified BO started using new Moon components, helped Egert to set it up and received suggestions for improvement.
+- Green light to start using Figma modes for more tasks, such as component variants and scales. Also added another layer called Context, which defines background, text, icon and border colors for various semantics, such as Brand, Positive, Negative and Info.
+- Started restructuring components, using modes will reduce the amount of physical variants, instead, different variants and sizes are going to share the same token, of which value will change with the mode.
+
+27 March
+- Discussions mostly with different people, Ksenia, Dima and Egert
+- Green light to start using modes for a lot of things
+
+24 March
+- Spent a full day working on the documentation
+- Egert notified me that they will move BO to Moon components and tokens
+
+17 - 21 March
+- Cashier white-label strategy: we decided that the Cashier will be a standalone module which is intalled into each product separately. Similarly as MDS is being handled. 
+Why? Cashier has their own component and components from the products. It’s really difficult to try to built that UI in one Figma file. 
+- New token collection called ‘Container’ in Core library. These tokens define consistent widths and heights for components that need consistent dimensions.
+- We added some of these tokens to components, such as Drawer, Dialog, Dropdown.
+- Added a bunch of Payment method logos to the symbols library.
+- I’ve made now enough updates to a lot of components which I will try to push to the other component libraries.
+
+
+19 March
+
+*** Important: Stratetical planning on how to continue with Cashier white-label product. We decided that Cashier’s module will be standalone, meaning installed separately into any product that needs to have Cashier. This gives 100% control oven all the UI through tokens. This way it’s also easier to install Cashier outside the organisation, there is no requirement to have Moon core under the Cashier.
+
+18 March
+- Finalized new set of Payment method symbols
+- Renamed and updated some symbol components to match with all the others, space in the name is replaced with “-“
+- Helped Stasja with Figma, some of the components are rendering flipped 180deg for some reason
+- Added more images to Supernova, readjusted some text about Color
+- New token collection inside Core library called ‘Container’, the tokens there define how big components can be in terms of width and height. Used for modals, drawers, dropdowns and other UI elements that need consistent dimensions. Inspired by Tailwind, but adapted for MDS.
+
+17 March
+- Started creating a new wave of payment method symbols, I need to get them approved now by payment team guys.
+- Had a session with Hugo, product designer from Bombay, and we set up a Primitive and Semantic color variables using Radix. That’s really nice that he is recognizing the value of scaling with variables.
+- Thinking about ways how to connect Bombay with Moon design. It’s very different approach for them since they have different products - landing pages built on wordpress.
+- Worked with documentation, mostly improved some images again.
+- Found a Figma plugin for Birgitt that will help her navigate the variables in dev mode.
+
+10 - 14 March
+- Prepared a bunch of payment method symbols for Moon Symbols library, this goes for fintech products. I need to add some more.
+- We started discussions about creating a Figma plugin to streamline process of installing Figma libraries
+- Added some new components for Pay.io
+- Disucssions with Birgit about the form components and their states, kudos for being so dedicated to details :D
+- Reiterating documentation
+
+13 March
+- Continued writing documentation for components
+- Reiterating UI design of the Supernova site
+- Gave a couple of components to Pay.io
+- Discussions and feedback from Egert, he is now installing Core and Components to Sportsbet
+
+11 March
+- Made a bunch of payment providers and methods symbols, Dima published them to CDN
+- Had discussions with designers
+- Got a request for a Slider component, which would fall under Forms & selection control category
+
+10 March
+- Became friends with Pepe and Teele, I’m working on some payment method symbols for the moon symbols library
+- Made a first Overview document for the plugin Nadja is going to create :D
+- Added documentation for Alert and Snackbar
+
+03 - 07 March
+- This week we finished up and published the documentation web site and I’m currently on a stable state with Figma components
+- Pay88.io, Pay.io component libraries needed an update. Reordered/regrouped most of the component tokens. Fixed some minor OCD bugs.
+- Adding new components to these products upon request
+- HubWallet duplicated an entire component library
+- Components are getting on a stable state so i will start a proper versioning for each component
+- Continued writing documentation for components
+- On friday added documentation for bottom sheet, drawer, dialog and dropdown components.
+
+06 March
+- Separated Button and Icon button components, made separate component tokens for Icon button
+- Made that change for other products as well
+- Updated Pay88.io components and their tokens, also added a bunch of new components
+- Will do the same for Pay.io today
+
+28 February
+- Finalized documentation site as much as possible.
+- I renamed Foundations page on top navigation to Develop, since I didn’t have anything to write about design there.
+- I edited the Developer text a little bit, tried to simplify and restructure. But please, you should all check if it’s all good. There’s a sentence “all icons use the text-moon-14 size.” which is not correct.
+- Typography for developers is refering to current moon.io/typography page, what will happen to that page?
+- 
+
+26 February
+- Discussions with Ksenia and Hugo
+- Carousel
+- Documentation, I added bunch of screenshots of things 
+
+24 February one on one with Egert
+- Finishing up components with component tokens.
+- Finishing up documentation web page, we plan to launch March 03.
+- Product designers are curious about the design system.
+- Rustam/Stasja plan to start with new Sportsbet web this year (2025) and it will be built with new design system.
+- Emin starts a new project with Hub88 and will be using new design system.
+- Ksenia and Kostiantyn are looking into Balanced, which is built on back office templates.
+    - Either use BO-s 'templates' and 'components' to build the ui for Balanced with the same visual look or
+    - Use only 'templates’ from BO and replace them with the 'components' of Balanced, together with Balanced ‘Core' and be part of Moon automation.
+- New developer in Moon team, could say she is a creative coder.
+- Siim is helping me a little bit with documentation, to create illustrations and logo.
+- Hugo is curious about the variables, I helped him set up typography system.
+- We dumbed down Cashier stuff a little bit.
+——
+* Design system adoption is growing, product designers are curious and engaged
+
+20 February
+- Tooltip, alert, snackbar, both circular and linear progress, loader and badge components
+- Modes for semantics
+- 
+
+19 February
+- Accordion, List and Menu components.
+- Actually reading and mapping component tokens is something designers do in Figma, I don’t see devs doing it. And I’m working with them every day and saw some space for interations. I believe it has more steady flow and better structure in figma’s variables table.
+
+
+18 February
+- Pay88.io, implemented the ‘Scale’ collection.
+- Had a chat with Emin, they plan to start with a new project at Hub88 and wants to use new component library.
+- Documentation process, I really hope to catch up with Siim this week
+
+17 February
+- Moved semantic scale tokens from ‘Semantic’ collection to ’Scale’ collection and remapped the components
+- Did that for Pay.io
+- Had a meeting with fintech designers to discuss balanced.io, which should be based on back office templates
+
+10 - 14 February
+- Documentation on Supernova
+- Worked on Accordion and List component
+- Creating components for Pay88
+- Mode based component variants and sizes. There is always a matrix of tokens for components - size axis and style axis. 
+- Already created semantic size collection and every t-shirt size is in a separate mode
+
+12 February
+
+- Half a day I spent for documentation. We did some mental card sorting excercise with Dima yesterday on what the structure of the navigation is. Other half I was working with the components.
+
+3 - 7 February
+- Mostly building documentation on Supernova, with improved layout and aesthetics.
+- I discussed with Siim (graphic designer) about illustrations and overall branding aspect, he will help me out.
+- On friday I helped Hugo with typography variables, with variable modes for different screen sizes, so he can use responsive text styles.
+- Ksenia got a new button component for Cashier and Pay88.
+- Also helped Ksenia build a custom input component.
+- Also supporting Kostiantyn with the component tokens.
+- Preparations for Moon Symbols automation.
+
+14 January
+- Continued reworking component tokens, iterating again. Data entry components are pretty solid ja consistent already.
+
+13 January
+- Last week I built global size tokens (gap, padding, border radius, height) that was used for all components that have t-shirt size tokens, according to january 8. Yesterday we saw that they should not be part of component tokens inside component file. They are actually semantic tokens and should be in the base file instead. Previously we had semantic collection only for colors, but it should also include dimensions. So now I’m migrating all these global sizes to base files semantic collection. iteration is hard.
+
+10 January
+- Component documentation on Supernova
+
+9 January
+- Token documentation, component variants and state documentation
+
+8 January
+- Today, I worked on defining a token strategy for component design. I explored three approaches: creating separate tokens for each component, using a single global token collection, or having component-specific tokens that reference global ones. I decided on the third option as it balances consistency and flexibility. This approach ensures all components inherit shared values like sizes, border radii, and colors from global tokens, while still allowing individual components to override these values when needed.
+
+7 January
+- Big work on Button component, 
+- We have component tokens Avarar, Button and Chip
+
+30 December 2024 -
+03 January 2025
+- Input and selection components.  
+- They share the same component properties.
+- All these components have similar variant structure, previously some components had disabled state, some didn’t.
+- I’ve merged inset text input & select with regular text input and select components.
+- Creating illustrations and exampels for Supernova documentation.
+
+19 December
+- Supernova component documentation, I have a solid something for 5 components.
+- I have a template I can follow now, which would cover the really basic of every component.
+- I had to write a lot of CSS to make things visually more pleasing, like font sizes, gaps between sections, image border radiuses
+
+18 December
+- Supernova documentation restructure. There are 4 main pages: Get started, Foundations, Assets and Components. Each of these 4 pages have subpages.
+- Component documentation.
+- Discussions with Ksenia about typography alignment with Cashier, adding extra typography styles. 
+- Added a Ghost style variant to the Chip, was missing that.
+- Added Border/Brand Subtle token to accompany Background/Brand Subtle
+
+17 December
+- Component documentation, currently doing it in Figma for speed
+
+16 December
+- Started writing documentation for the components, so far I managed to do something for AuthCode and Checkbox. It’s probably a slow process that needs a lot of iterations, so first I will try to cover basic stuff like anatomy, variants and states with images.
+- Also made sure that every component page has variants and properties imported from Figma. There are some bugs with some components not importing all the variants, I’ve reported that to Supernova.
+
+13 December
+- Mostly token documentation on Supernova.
+- This week I will try to only work on component documentation 
+
+12 December
+- Working with token documentation on Supernova.
+- Was pushing component tokens to the Supernova documentation. I think so I found a pretty good way to display them.
+- Second half of the day I was at Bombay office working with Anna. She is doing the Burman Hotel and I helped her with variables and file structure. 
+
+11 December
+- I created 40x40px assets of all our product logos and added them to Moon Assets library
+- I was looking into multi- design system features in Supernova. Turns out we could have a landing page for all design systems and each page would display that product tokens and components
+- But unfortunately can’t duplicate content from one to another, need to add everything manually.
+- Small chat with Anna about variables
+
+10 December
+- Created cover photos of the components for the documentation page. The images are generic, kind of a placeholder type.
+- Was looking into Figma API with Roberto, there were some issues and we decided we need to get 4 API requests from Figma for everything to work properly
+- Helped Stasja with Tooltip component, old component is weirdly broken so I gave her the component from the new library
+
+9 December
+- Creating cover photos of the components for the documentation page
+
+6 December
+- Design team demo event, which was a full day conference basically.
+
+5 December
+- Preparing a presentation for design demo event 
+- Supernova design system management
+
+4 December
+- Supernova design system management
+
+03 December
+- Working with Supernova, I was documenting Badge component, since I already had content for that component with pictures and scenarios.
+- Harry was visiting office, a lot of abstract visionary discussions with him.
+
+02 December
+- Demo call with Supernova, the design system manager tool
+- Got access to demo environment and started integrating figma token and component files
+
+29 November
+- Created a couple of component tokens for Buttons, Avatar and Chip.
+- Some discussions with Moon DS team and Ksenia, Salvatore.x
+
+28 November
+- Specified Ksenia feedback about the components.
+- Initially I created components matching 1-to-1 with previous library, with a lot of variants that could be merged. I’ve been merging them and then deleting unnecessary variants. This caused some broken components elsewhere where i’ve used nested instances. Was fixing those.
+- Discussions about the component tokens, in which file and how to add them.
+
+27 November
+- Long feedback session with Ksenia about the Moon components
+- Fox Den venue
+
+26 November
+- Discussions
+- Bombay venues from responsive to separate organisms
+- Previously I created a text style that could be used in different venues with unique brandings and different screen sizes
+- This would assume to use composite components such as layouts
+- Not very intuitive to manage this, yet
+- Treat mobile and desktop as separate organism
+- Still basic components such as text groups, images can be shared across screen sizes
+- Still keep reusable components and styles across venues.
+
+25 November
+- One on one, job interview
+- Components for Bombay
+
+22 November
+- Conference
+
+21 November
+- Dinara: Balanced (same as BO), Partners, Travel will follow
+- Fox Den
+- We added couple of tokens
+
+20 November
+- Workshop
+ 
+19 November
+- Worked with Ksenia. Tokens and components.
+- Finished with typography and text styles for Shang Shi, Fox Den, Velvet, The Peacock
+
+18 November
+- Some discussions
+- New section componenet for Bombay: there’s some form types and text styles. 
+
+15 November
+- Was still chewing through all the venue sites 
+- Mapping out patterns, styles etc
+- Focused on text styles
+
+14 November
+- Many Bombay venues all have unique branding
+- They all have so many different type styles
+
+
+* Yesterday was getting familiar with Bombay venus. there’s a lot of different landing pages with unique branding - their own colors and typography.
+* I’m trying to set up one file with styles and variables that could be used in all these values.
+* It’s a little bit different as well because we are dealing with landing pages and web design, not product design
+
+10 November
+- Studying the json structure of our token, endless possibilities
+- Started building a chatbot for simple queris
+- Improvements to the tokens tabel in figma
+- Figma started updating variables
+
+
+9 November
+- Preparing for the presentation today
+
+8 November 
+- Working on presentation for a demo
+
+7 November
+- 6 tokens files
+- Worked with Ksenia
+
+*** Edge cases: mitu mode semantic tasemel, rohkem kui kaks mode theme tasemel, kuidas shadow suurused käituksid kui nad oleksid theme tasemel
+
+6 November
+- Token set up for Stasja and Ksenia
+- Chatbot
+
+5 November
+- Discussions
+- Renamed Space, Rounded and Border tokens
+- Added Backdrop semantic bg color
+- Tried plugins
+
+4 November
+- Finished up with typography, we decided not to include letter spacing
+- Opacity tokens, these are grouped with Shadow tokens 
+- Shadow tokens 
+- Interview
+
+1 November
+- Typography tokens into style and showed them to Egert, Egert said yes
+- Was dealing with some bugs that are probably related to Figma
+- Added typography and opacity tokens to Back office
+
+31 October 
+- Icons, Assets
+- Typography tokens
+- Opacity tokens
+
+30 October
+- Typography tokens
+- BO tokens
+
+29 October
+- Typography tokens
+- Styles
+- Visualisation
+
+*** hetkel pean disainisusteemi võimalikult palju levitama ja aitama võimalikult paljudel toodetel selle peale üle minna. sportsbet mitte nii pea. cashier? pay88?
+
+28 October
+- Synced Moon Tokens with BO. We worked with egert to simplify colors and added dark theme palette
+
+25 October
+- Meetings
+- Started looking into backoffices
+
+24 October
+- Finished last two components: carousel and snackbar
+- Restructed Figma workspace a little bit
+
+23 October
+- Some discussions with Ksenia
+- Worked on Menu Item and Combobox
+- Carousel and Snackbar to do
+
+22 October
+- Finishing touches to variables in figma
+- Circular and Linear Progress
+
+21 October
+- Need to finish Combobox, Carousel, Menu Item, Progress bar, Snackbar
+
+18 October
+- Placeholder, Loader, Bottom Sheet and Alert components.
+
+17 October
+- Completed Accordion and Avatar component. Avatar was missing Icon type variants. Reduced badge position variants.
+- Struggling with Menu Item and Combobox now
+- Added typography variables to the table
+- Added base color variables to the table and they are referred from semantic tokens
+- Met with the head of UX, Stefano
+
+17 October
+- Yesterday we had nice discussions on how to bridge gap between tailwind classes and our design systems. I also helped prepare technical challenge for Dima.
+- Btw, Rustam is now designing with new icons!
+
+16 October
+- Inset Select, Text Input Group, Search
+
+15 October
+- Switch, Input, Inset Input
+
+11, 14 October
+- Select, InsetSelect, Dropdown, Segmented Control, Tag, Tabs
+- Tested a workflow if product wants to add their own theme 
+- Today need to leave 3pm
+
+09 October
+- AuthCode, Checkbox, Radio, Chip, Modal
+
+08 October
+- Discussions
+- Updated and made modifications to the Tokens table for Dima to put online
+- Moved “new” components to a separate file, leaving only Variables inside the working file
+
+07 October
+- Sync:
+- Check if Moon components have correct variables added
+- Tokens page design for developers
+- Components changes through branches
+- Button component: Correct icons, Simplified variant properties, Visually structured the component variants
+
+
+17 September
+- Revisited Button components, they share the same component tokens
+- Added size variants for Accordion, Avatar
+- Refactored List component a little bit
+- Tokens for Badge, Loader, Progress
+- Progress has 3 sizes
+- For today?
+
+16 September
+- Created extra size variants for all Input & Selection components
+- They share the same component token group
+
+13 September
+- Added two sizes for Button and Icon Button
+- Component tokens for Button, Icon Button, Chip
+- Vacation
+
+11 September
+- Moved my desk
+- Component tokens
+- Pay88 Ksenia
+- A lot of discussions and I’m confused
+
+10 September
+- Put everything back into one file
+- Tokens for 10 components (93 variables)
+
+9 September
+- Made a second Figma for component tokens, and moved all the components from the first file to second file.
+- Had to merge a bunch on branches from the first file so made changes to component, i added to changelog
+- Brought in BO theme, that Egert made
+
+5 September
+- A lot of meetings
+- Updated the source library of huge icons to the latest
+- Published one icon
+
+4 September
+- Structured my playbook, went a lot into details
+
+3 September
+- Structured my playbook, went a lot into details
+- Got some insights from Emin
+
+2 September
+- Dealt a little with icons, requested some new concepts from HugeIcons
+- Refactored the approach for using forms in my patternsx
+
+30 August
+- Started with Searching & Finding flows
+- 5 brances for Main Component file, according to my sandbox components.
+
+29 August
+- Worked on Onboarding & Registration flows
+
+28 August
+- Updated 3 cryptocurrency assets
+- Worked on my demo product
+
+27 August
+- Semver for Icons
+- Filled style icons
+- Onboarding flows
+
+26 August
+- Semver
+- Test product 
+- Simplified Variables
+- Typography
+- Filled icons
+
+23 August
+- Import JSON to Variables with plugins, works but could use our own plugin
+- Duplicated component library and started test project
+- Components could be swapped in bulk by the system or one by one 
+- BC, filled buttons remained with same colors, outlined button
+
+22 August
+- Text styles
+- SemVer
+- Components in Moon CSS spreadsheet are all marked ready for development
+
+21 August
+- Reviewing components: List Item, Alert, Snackbar
+- Added 4 new variables for Warning states
+- Modified all Error/Info/Success state Variables
+- Added Warning type for Snackbar and Alert
+- Added Default state for Alert
+- Readded outlined style for Alert
+- Filled icons?
+- Simplified drop shadow styles
+
+19 August
+- Added components to the Excel table and assigned ready for dev, that is ready.
+- Popover
+- Table component
+- Label/Hint component for inputs
+- Default widths of components	
+

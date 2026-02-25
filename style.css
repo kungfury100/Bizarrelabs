@@ -67,7 +67,7 @@ ul {
     font-family: var(--font-secondary);
 }
 
-p span {
+p span, li span {
     background-color: var(--backgroundBlur);
 }
 
